@@ -1,32 +1,96 @@
 import React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-const DefaultCards = () => {
+import DefaultHeading from "./headings";
+import DefaultParagraph from "./paragraphs";
+import DefaultImage from "./images";
+
+const DefaultCard = ({
+  children,
+  headingText,
+  paragraphText,
+  handlers = { div: null, heading: null, paragraph: null },
+  tag,
+  textAlign,
+  styles = { div: {}, heading: {}, paragraph: {}, cardStyle: {} },
+}) => {
   return (
-    <Box sx={{ width: "30%", boxShadow: "10px 10px 5px lightblue" }}>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
+    <div style={{ width: "100%", height: "100%", ...styles.cardStyle }}>
+      <DefaultHeading
+        Tag={tag}
+        textAlign={textAlign}
+        handler={handlers.heading}
+        styles={{
+          cursor: handlers.heading ? "pointer" : "",
+          ...styles.heading,
         }}
-        p={3}
       >
-        <Typography variant="h6">Total Price</Typography>
-        <Typography variant="h4">700 BDT</Typography>
-      </Box>
-      <Box p={3}>
-        <Typography variant="h5">Available Time Shots</Typography>
-        <Box>
-          <Typography variant="p" fontSize={20}>
-            monday
-          </Typography>
-        </Box>
-      </Box>
-    </Box>
+        {headingText}
+      </DefaultHeading>
+      <DefaultParagraph
+        textAlign={textAlign}
+        styles={{
+          cursor: handlers.paragraph ? "pointer" : " ",
+          ...styles.paragraph,
+        }}
+      >
+        {paragraphText}
+      </DefaultParagraph>
+      <div>{children}</div>
+    </div>
+  );
+};
+const CardWithImage = ({
+  children,
+  headingText,
+  paragraphText,
+  handlers = { div: null, heading: null, paragraph: null },
+  tag,
+  src,
+  textAlign,
+  imageWidth,
+  imageHight,
+  imageDirection = "column",
+  position = "",
+  styles = { div: {}, heading: {}, paragraph: {}, cardStyle: {} },
+}) => {
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: imageDirection,
+        justifyContent: "space-around",
+        alignItems: position,
+        ...styles.cardStyle,
+      }}
+    >
+      <DefaultImage src={src} width={imageWidth} height={imageHight} />
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <DefaultHeading
+          Tag={tag}
+          textAlign={textAlign}
+          handler={handlers.heading}
+          styles={{
+            cursor: handlers.heading ? "pointer" : "",
+            ...styles.heading,
+          }}
+        >
+          {headingText}
+        </DefaultHeading>
+        <DefaultParagraph
+          textAlign={textAlign}
+          styles={{
+            cursor: handlers.paragraph ? "pointer" : " ",
+            ...styles.paragraph,
+          }}
+        >
+          {paragraphText}
+        </DefaultParagraph>
+      </div>
+      <div>{children}</div>
+    </div>
   );
 };
 
-export default DefaultCards;
+export { DefaultCard, CardWithImage };

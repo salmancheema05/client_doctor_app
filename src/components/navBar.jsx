@@ -1,11 +1,11 @@
 import React from "react";
-import DefaultBox from "./boxs";
+import { DefaultBox } from "./boxs";
 import DefaultGrid from "./grids";
 import DefaultGridItem from "./gridItems";
 import DefaultLinkImage from "./linkImages";
 import DefaultUl from "./uls";
 import DefaultMenuItem from "./menuItems";
-import DefaultButton from "./buttons";
+import { DefaultButton } from "./buttons";
 import logo from "../images/logo.png";
 const NavBar = () => {
   return (
@@ -24,7 +24,7 @@ const NavBar = () => {
         </DefaultGridItem>
         <DefaultGridItem sm={12} md={4} lg={4}>
           <DefaultBox>
-            <DefaultButton type="ok" />
+            <DefaultButton>login</DefaultButton>
           </DefaultBox>
         </DefaultGridItem>
       </DefaultGrid>

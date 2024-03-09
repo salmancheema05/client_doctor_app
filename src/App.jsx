@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./containers/home/index.jsx";
 import Services from "./containers/services/index";
 import FindDoctor from "./containers/findDoctor/index";
+import DoctorDetail from "./containers/doctorDetail/index.jsx";
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ const App = () => {
     {
       path: "/finddoctor",
       element: <FindDoctor />,
+    },
+    {
+      path: "/doctordetail",
+      element: <DoctorDetail />,
     },
   ]);
   return (

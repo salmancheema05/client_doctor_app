@@ -1,12 +1,15 @@
 import React from "react";
 import GuestLayout from "../../layouts/guestLayout";
 import Header from "./components/Header";
-import Serverices from "../../components/serverices";
+import Services from "./components/services";
+import BestNation from "./components/bestNation";
+
 const Home = () => {
   return (
     <GuestLayout>
       <Header />
-      <Serverices />
+      <Services />
+      <BestNation />
     </GuestLayout>
   );
 };

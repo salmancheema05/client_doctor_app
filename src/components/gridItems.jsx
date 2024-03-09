@@ -10,7 +10,7 @@ const DefaultGridItem = ({
   styles,
 }) => {
   return (
-    <Grid item xs={xs} sm={sm} md={md} lg={lg} sx={{ ...styles }}>
+    <Grid item xs={xs} sm={sm} md={md} lg={lg} style={{ ...styles }}>
       {children}
     </Grid>
   );

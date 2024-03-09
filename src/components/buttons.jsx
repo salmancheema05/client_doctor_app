@@ -1,37 +1,34 @@
 import React from "react";
-import { Button } from "@mui/material";
-
 const buttonMappings = {
-  default: { name: "Default", sx: { backgroundColor: "blue" } },
-  ok: { name: "Ok", sx: { backgroundColor: "green" } },
-  cancel: { name: "Cancel", sx: { backgroundColor: "red" } },
-  login: { name: "Login", sx: { backgroundColor: "blue", height: "30px" } },
+  default: {
+    name: "Default",
+    style: { backgroundColor: "blue", color: "white", padding: "10px" },
+  },
+  ok: { name: "Ok", style: { backgroundColor: "green" } },
+  cancel: { name: "Cancel", style: { backgroundColor: "red" } },
+  login: { name: "Login", style: { backgroundColor: "blue", height: "30px" } },
 };
 
 const DefaultButton = ({
-  type = "default",
+  whichButton = "default",
   handler = () => {},
   styles,
   children = null,
-  variant = "contained",
-  size = "medium",
   ...rest
 }) => {
   return (
-    <Button
-      sx={{
+    <button
+      style={{
         textTransform: "none",
-        ...buttonMappings[type].sx,
+        ...buttonMappings[whichButton].style,
         ...styles,
       }}
       onClick={handler}
-      variant={variant}
-      size={size}
       {...rest}
     >
-      {children ? children : `${buttonMappings[type].name}`}
-    </Button>
+      {children != null ? children : `${buttonMappings[whichButton].name}`}
+    </button>
   );
 };
 
-export default DefaultButton;
+export { DefaultButton };

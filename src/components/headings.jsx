@@ -1,21 +1,17 @@
-import { Typography } from "@mui/material";
+import { textAlign } from "@mui/system";
 
 const DefaultHeading = ({
-  variant = "h2",
+  Tag = "h1",
   handler = () => {},
+  textAlign = "left",
   styles,
   children,
   ...rest
 }) => {
   return (
-    <Typography
-      variant={variant}
-      sx={{ ...styles }}
-      onClick={handler}
-      {...rest}
-    >
-      {children}
-    </Typography>
+    <div style={{ textAlign: textAlign, ...styles }}>
+      <Tag>{children}</Tag>
+    </div>
   );
 };
 export default DefaultHeading;

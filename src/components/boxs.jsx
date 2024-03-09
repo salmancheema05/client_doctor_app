@@ -1,10 +1,9 @@
 import React from "react";
-import Box from "@mui/material/Box";
-const DefaultBox = ({ component = "div", children, styles, ...rest }) => {
+const DefaultBox = ({ children, styles, ...rest }) => {
   return (
-    <Box component={component} sx={{ ...styles }} {...rest}>
+    <div style={{ ...styles }} {...rest}>
       {children}
-    </Box>
+    </div>
   );
 };
-export default DefaultBox;
+export { DefaultBox };

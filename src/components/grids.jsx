@@ -15,7 +15,7 @@ const DefaultGrid = ({
         container
         rowSpacing={rowSpacing}
         columnSpacing={{ xs: xs, sm: sm, md: md }}
-        sx={{ ...styles }}
+        styles={{ ...styles }}
       >
         {children}
       </Grid>

@@ -1,9 +1,11 @@
 import React from "react";
-import DefaultBox from "./boxs";
+import { DefaultBox } from "./boxs";
 import DefaultHeading from "./headings";
 import DefaultParagraph from "./paragraphs";
+import DefaultImage from "./images";
 const DefaultDetail = ({
-  headingType = "h2",
+  varient = { headingType: "h2", paragraphType: "body2" },
+  image = { src: null, width: null, height: null },
   textAlign = "left",
   headingText = null,
   paragraphText = null,
@@ -14,7 +16,7 @@ const DefaultDetail = ({
     <DefaultBox
       handler={handlers.div}
       styles={{
-        cursor: handlers.div ?? "pointer",
+        cursor: handlers.div ? "pointer" : "",
         textAlign,
         ...styles.div,
       }}
@@ -22,16 +24,23 @@ const DefaultDetail = ({
       {headingText ? (
         <DefaultHeading
           handler={handlers.heading}
-          styles={{ cursor: handlers.div ?? "pointer", ...styles.heading }}
-          variant={headingType}
+          styles={{
+            cursor: handlers.heading ? "pointer" : "",
+            ...styles.heading,
+          }}
+          variant={varient.headingType}
         >
           {headingText}
         </DefaultHeading>
       ) : null}
       {paragraphText ? (
         <DefaultParagraph
+          variant={varient.paragraph}
           handler={handlers.paragraph}
-          styles={{ cursor: handlers.div ?? "pointer", ...styles.paragraph }}
+          styles={{
+            cursor: handlers.paragraph ? "pointer" : " ",
+            ...styles.paragraph,
+          }}
         >
           {paragraphText}
         </DefaultParagraph>

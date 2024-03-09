@@ -1,16 +1,16 @@
 import React from "react";
-import GuestLayout from "../../layouts/guestLayout";
-import Header from "./components/Header";
+import Header from "./components/header";
 import Services from "./components/services";
 import BestNation from "./components/bestNation";
+import { DefaultDiv } from "../../components/divs";
 
 const Home = () => {
   return (
-    <GuestLayout>
+    <DefaultDiv>
       <Header />
       <Services />
       <BestNation />
-    </GuestLayout>
+    </DefaultDiv>
   );
 };
 

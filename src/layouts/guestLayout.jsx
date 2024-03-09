@@ -1,12 +1,14 @@
 import React from "react";
 import NavBar from "../components/navBar";
+import { Outlet } from "react-router-dom";
+import { DefaultDiv } from "../components/divs";
 
-const GuestLayout = ({ children }) => {
+const GuestLayout = () => {
   return (
-    <>
+    <DefaultDiv>
       <NavBar />
-      {children}
-    </>
+      <Outlet />
+    </DefaultDiv>
   );
 };
 

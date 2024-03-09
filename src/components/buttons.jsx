@@ -1,4 +1,6 @@
+import { Button } from "@mui/material";
 import React from "react";
+
 const buttonMappings = {
   default: {
     name: "Default",
@@ -6,28 +8,37 @@ const buttonMappings = {
   },
   ok: { name: "Ok", style: { backgroundColor: "green" } },
   cancel: { name: "Cancel", style: { backgroundColor: "red" } },
-  login: { name: "Login", style: { backgroundColor: "blue", height: "30px" } },
+  login: { name: "Login", style: { backgroundColor: "blue" } },
+  request_an_appointment: {
+    name: "Request An Appointment",
+    style: {
+      backgroundColor: "blue",
+      borderRadius: "40px",
+      color: "white",
+      padding: "10px 20px",
+    },
+  },
 };
 
 const DefaultButton = ({
-  whichButton = "default",
+  buttonKey = "default",
   handler = () => {},
   styles,
   children = null,
   ...rest
 }) => {
   return (
-    <button
+    <Button
       style={{
         textTransform: "none",
-        ...buttonMappings[whichButton].style,
+        ...buttonMappings[buttonKey].style,
         ...styles,
       }}
       onClick={handler}
       {...rest}
     >
-      {children != null ? children : `${buttonMappings[whichButton].name}`}
-    </button>
+      {children != null ? children : `${buttonMappings[buttonKey].name}`}
+    </Button>
   );
 };
 

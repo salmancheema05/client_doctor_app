@@ -1,11 +1,12 @@
 import React from "react";
-import GuestLayout from "../../layouts/guestLayout";
-import DoctorList from "./Components/doctorList";
+import { DefaultDiv } from "../../components/divs";
+import DoctorList from "./components/doctorList";
+
 const FindDoctor = () => {
   return (
-    <GuestLayout>
+    <DefaultDiv>
       <DoctorList />
-    </GuestLayout>
+    </DefaultDiv>
   );
 };
 

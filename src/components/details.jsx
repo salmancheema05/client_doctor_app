@@ -1,8 +1,9 @@
 import React from "react";
-import { DefaultBox } from "./boxs";
+import { DefaultBox } from "./boxes";
 import DefaultHeading from "./headings";
 import DefaultParagraph from "./paragraphs";
 import DefaultImage from "./images";
+
 const DefaultDetail = ({
   varient = { headingType: "h2", paragraphType: "body2" },
   image = { src: null, width: null, height: null },

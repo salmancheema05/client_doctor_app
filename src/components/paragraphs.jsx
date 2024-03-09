@@ -1,14 +1,12 @@
-const DefaultParagraph = ({
-  handler = () => {},
-  textAlign = "left",
-  styles,
-  children,
-  ...rest
-}) => {
+const DefaultParagraph = ({ handler = null, styles, children, ...rest }) => {
   return (
-    <div style={{ textAlign: textAlign, ...styles }}>
-      <p onClick={handler}>{children}</p>
-    </div>
+    <p
+      style={{ cursor: handler ? "pointer" : " ", ...styles }}
+      onClick={handler}
+      {...rest}
+    >
+      {children}
+    </p>
   );
 };
 export default DefaultParagraph;

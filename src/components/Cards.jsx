@@ -3,76 +3,87 @@ import Box from "@mui/material/Box";
 import DefaultHeading from "./headings";
 import DefaultParagraph from "./paragraphs";
 import DefaultImage from "./images";
+import { DefaultDiv } from "./divs";
 
 const DefaultCard = ({
-  children,
+  tag = "h1",
+  textAlign = "left",
   headingText,
   paragraphText,
+  children,
   handlers = { div: null, heading: null, paragraph: null },
-  tag,
-  textAlign,
-  styles = { div: {}, heading: {}, paragraph: {}, cardStyle: {} },
+  styles = { div: {}, heading: {}, paragraph: {} },
 }) => {
   return (
-    <div style={{ width: "100%", height: "100%", ...styles.cardStyle }}>
+    <DefaultDiv
+      style={{
+        textAlign,
+        ...styles.div,
+      }}
+    >
       <DefaultHeading
-        Tag={tag}
-        textAlign={textAlign}
+        tag={tag}
         handler={handlers.heading}
         styles={{
-          cursor: handlers.heading ? "pointer" : "",
+          marginBottom: "15px",
           ...styles.heading,
         }}
       >
         {headingText}
       </DefaultHeading>
       <DefaultParagraph
-        textAlign={textAlign}
+        handler={handlers.paragraph}
         styles={{
-          cursor: handlers.paragraph ? "pointer" : " ",
+          marginBottom: "15px",
           ...styles.paragraph,
         }}
       >
         {paragraphText}
       </DefaultParagraph>
-      <div>{children}</div>
-    </div>
+      {children}
+    </DefaultDiv>
   );
 };
+
 const CardWithImage = ({
   children,
   headingText,
   paragraphText,
-  handlers = { div: null, heading: null, paragraph: null },
   tag,
   src,
   textAlign,
   imageWidth,
-  imageHight,
-  imageDirection = "column",
+  imageHeight,
   position = "",
-  styles = { div: {}, heading: {}, paragraph: {}, cardStyle: {} },
+  styles = { image: {}, div: {}, heading: {}, paragraph: {}, cardStyle: {} },
+  handlers = { image: null, div: null, heading: null, paragraph: null },
 }) => {
   return (
-    <div
+    <DefaultDiv
       style={{
         width: "100%",
         height: "100%",
         display: "flex",
-        flexDirection: imageDirection,
         justifyContent: "space-around",
         alignItems: position,
         ...styles.cardStyle,
       }}
     >
-      <DefaultImage src={src} width={imageWidth} height={imageHight} />
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <DefaultImage
+        src={src}
+        width={imageWidth}
+        height={imageHeight}
+        styles={{
+          cursor: handlers.image ? "pointer" : "",
+          ...styles.image,
+        }}
+      />
+      <DefaultDiv style={{ display: "flex", flexDirection: "column" }}>
         <DefaultHeading
-          Tag={tag}
+          tag={tag}
           textAlign={textAlign}
           handler={handlers.heading}
           styles={{
-            cursor: handlers.heading ? "pointer" : "",
             ...styles.heading,
           }}
         >
@@ -87,9 +98,9 @@ const CardWithImage = ({
         >
           {paragraphText}
         </DefaultParagraph>
-      </div>
+      </DefaultDiv>
       <div>{children}</div>
-    </div>
+    </DefaultDiv>
   );
 };
 

@@ -1,10 +1,15 @@
 import React from "react";
 
-const DefaultImage = ({ src, styles, height = "30%", width = "30%" }) => {
+const DefaultImage = ({ handler = null, styles, ...rest }) => {
   return (
-    <div style={{ width: width, height: height, ...styles }}>
-      <img src={src} width="100%" height="100%" />;
-    </div>
+    <img
+      style={{
+        cursor: handler ? "pointer" : "",
+        borderRadius: "10px",
+        ...styles,
+      }}
+      {...rest}
+    />
   );
 };
 

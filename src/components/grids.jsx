@@ -2,24 +2,22 @@ import React from "react";
 import { Grid } from "@mui/material";
 
 const DefaultGrid = ({
+  spacing = 2,
+  rowSpacing = 2,
   children,
-  rowSpacing = 1,
-  xs = 1,
-  sm = 2,
-  md = 3,
   styles,
+  ...rest
 }) => {
   return (
-    <>
-      <Grid
-        container
-        rowSpacing={rowSpacing}
-        columnSpacing={{ xs: xs, sm: sm, md: md }}
-        styles={{ ...styles }}
-      >
-        {children}
-      </Grid>
-    </>
+    <Grid
+      container
+      spacing={spacing}
+      rowSpacing={rowSpacing}
+      style={{ ...styles }}
+      {...rest}
+    >
+      {children}
+    </Grid>
   );
 };
 

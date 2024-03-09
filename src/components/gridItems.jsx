@@ -1,16 +1,9 @@
 import React from "react";
 import { Grid } from "@mui/material";
 
-const DefaultGridItem = ({
-  xs = 12,
-  sm = 1,
-  md = 1,
-  lg = 1,
-  children,
-  styles,
-}) => {
+const DefaultGridItem = ({ children, styles, ...rest }) => {
   return (
-    <Grid item xs={xs} sm={sm} md={md} lg={lg} style={{ ...styles }}>
+    <Grid item style={{ ...styles }} {...rest}>
       {children}
     </Grid>
   );

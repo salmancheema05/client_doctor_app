@@ -3,9 +3,9 @@ import GuestLayout from "../../layouts/guestLayout";
 import Services from "./components/services";
 const Index = () => {
   return (
-    <GuestLayout>
+    <div>
       <Services />
-    </GuestLayout>
+    </div>
   );
 };
 

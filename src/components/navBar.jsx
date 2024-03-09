@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultBox } from "./boxs";
+import { DefaultBox } from "./boxes";
 import DefaultGrid from "./grids";
 import DefaultGridItem from "./gridItems";
 import DefaultLinkImage from "./linkImages";
@@ -16,9 +16,15 @@ const NavBar = () => {
         </DefaultGridItem>
         <DefaultGridItem sm={12} md={4} lg={4}>
           <DefaultUl>
-            <DefaultMenuItem color="white">Home</DefaultMenuItem>
-            <DefaultMenuItem color="white">Service</DefaultMenuItem>
-            <DefaultMenuItem color="white">Find A Doctor</DefaultMenuItem>
+            <DefaultMenuItem to="home" color="white">
+              Home
+            </DefaultMenuItem>
+            <DefaultMenuItem to="services" color="white">
+              Service
+            </DefaultMenuItem>
+            <DefaultMenuItem to="finddoctor" color="white">
+              Find A Doctor
+            </DefaultMenuItem>
             <DefaultMenuItem color="white">Contact </DefaultMenuItem>
           </DefaultUl>
         </DefaultGridItem>

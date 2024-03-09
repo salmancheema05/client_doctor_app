@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultBox } from "../../../components/boxs";
+import { DefaultBox } from "../../../components/boxes";
 import DefaultGrid from "../../../components/grids";
 import DefaultGridItem from "../../../components/gridItems";
 import { DefaultCard, CardWithImage } from "../../../components/cards";

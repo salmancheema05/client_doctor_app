@@ -13,7 +13,7 @@ const App = () => {
       element: <GuestLayout />,
       children: [
         {
-          path: "/home",
+          path: "/",
           element: <Home />,
         },
         {

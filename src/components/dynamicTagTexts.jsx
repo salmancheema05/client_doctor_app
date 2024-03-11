@@ -1,6 +1,6 @@
 import { DefaultSpan } from "./spans";
 
-const DefaultHeading = ({
+const DefaultDynamicTagText = ({
   tag = "h1",
   handler = null,
   styles,
@@ -19,7 +19,36 @@ const DefaultHeading = ({
   );
 };
 
-export const HeadingWithThreeParts = ({
+const DynamicTagTextWithTwoParts = ({
+  tag = "h1",
+  handler = { tag: null, part1: null, part2: null },
+  styles = { tag: {}, part1: {}, part2: {} },
+  part1,
+  part2,
+}) => {
+  const Tag = tag;
+  return (
+    <Tag
+      style={{ cursor: handler.tag ? "pointer" : "", ...styles.tag }}
+      onClick={handler.tag}
+    >
+      <DefaultSpan
+        style={{ cursor: handler.part1 ? "pointer" : "", ...styles.part1 }}
+        onClick={handler.part1}
+      >
+        {part1 + " "}
+      </DefaultSpan>
+      <DefaultSpan
+        style={{ cursor: handler.part2 ? "pointer" : "", ...styles.part2 }}
+        onClick={handler.part2}
+      >
+        {part2 + " "}
+      </DefaultSpan>
+    </Tag>
+  );
+};
+
+const DynamicTagTextWithThreeParts = ({
   tag = "h1",
   handler = { tag: null, part1: null, part2: null, part3: null },
   styles = { tag: {}, part1: {}, part2: {}, part3: {} },
@@ -54,4 +83,9 @@ export const HeadingWithThreeParts = ({
     </Tag>
   );
 };
-export default DefaultHeading;
+
+export {
+  DefaultDynamicTagText,
+  DynamicTagTextWithThreeParts,
+  DynamicTagTextWithTwoParts,
+};

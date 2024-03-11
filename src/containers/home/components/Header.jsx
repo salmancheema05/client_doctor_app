@@ -6,10 +6,10 @@ import { HEADING, PARAGRAPH } from "../constants";
 import doctorimage1 from "../../../images/doctorimage1.jpg";
 import doctorimage2 from "../../../images/doctorimage2.jpg";
 import doctorimage3 from "../../../images/doctorimage3.jpg";
-import { DefaultCard, CardWithImage } from "../../../components/cards";
 import { DefaultCardFooter } from "../../../components/cardFooter";
 import { DefaultDiv } from "../../../components/divs";
 import DefaultImage from "../../../components/images";
+import { DefaultCard } from "../../../components/cards";
 
 const Header = () => {
   return (

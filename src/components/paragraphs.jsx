@@ -1,7 +1,11 @@
 const DefaultParagraph = ({ handler = null, styles, children, ...rest }) => {
   return (
     <p
-      style={{ cursor: handler ? "pointer" : " ", ...styles }}
+      style={{
+        color: "gray",
+        cursor: handler ? "pointer" : " ",
+        ...styles,
+      }}
       onClick={handler}
       {...rest}
     >

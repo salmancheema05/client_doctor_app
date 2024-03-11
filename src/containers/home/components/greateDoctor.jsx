@@ -10,18 +10,29 @@ import {
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import StarRateIcon from "@mui/icons-material/StarRate";
 
-const DoctorList = () => {
+const GreateDoctor = () => {
   return (
-    <DefaultGrid styles={{ padding: "10% 5%" }}>
+    <DefaultGrid styles={{ padding: "0% 5%" }}>
+      <DefaultGridItem
+        xs={12}
+        sm={6}
+        md={6}
+        lg={12}
+        styles={{ padding: "3% 0%" }}
+      >
+        <DefaultCard
+          tag="h2"
+          headingText="Our Greate Doctor"
+          textAlign="center"
+        />
+      </DefaultGridItem>
+
       <DefaultGridItem
         xs={12}
         sm={6}
         md={6}
         lg={4}
-        styles={{
-          padding: "0px 2%",
-          marginBottom: "2%",
-        }}
+        styles={{ padding: "0px 2%", marginBottom: "2%" }}
       >
         <CardWithImage
           imageSrc={doctorimage2}
@@ -108,4 +119,4 @@ const DoctorList = () => {
   );
 };
 
-export default DoctorList;
+export default GreateDoctor;

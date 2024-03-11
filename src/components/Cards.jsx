@@ -3,10 +3,11 @@ import Box from "@mui/material/Box";
 import DefaultHeading from "./headings";
 import DefaultParagraph from "./paragraphs";
 import DefaultImage from "./images";
-import { DefaultDiv } from "./divs";
+import { DefaultDiv, FlipDivs } from "./divs";
 
 const DefaultCard = ({
-  tag = "h1",
+  customHeading = null,
+  headingTag = "h1",
   textAlign = "left",
   headingText,
   paragraphText,
@@ -21,16 +22,20 @@ const DefaultCard = ({
         ...styles.div,
       }}
     >
-      <DefaultHeading
-        tag={tag}
-        handler={handlers.heading}
-        styles={{
-          marginBottom: "15px",
-          ...styles.heading,
-        }}
-      >
-        {headingText}
-      </DefaultHeading>
+      {customHeading ? (
+        customHeading
+      ) : (
+        <DefaultHeading
+          tag={headingTag}
+          handler={handlers.heading}
+          styles={{
+            marginBottom: "15px",
+            ...styles.heading,
+          }}
+        >
+          {headingText}
+        </DefaultHeading>
+      )}
       <DefaultParagraph
         handler={handlers.paragraph}
         styles={{
@@ -46,62 +51,162 @@ const DefaultCard = ({
 };
 
 const CardWithImage = ({
-  children,
+  customHeading = null,
+  headingTag = "h1",
+  imageSrc,
+  imageWidth = "100px",
+  imageHeight = "100px",
+  textAlign = "left",
+  imagePosition = "left",
   headingText,
   paragraphText,
-  tag,
-  src,
-  textAlign,
-  imageWidth,
-  imageHeight,
-  position = "",
-  styles = { image: {}, div: {}, heading: {}, paragraph: {}, cardStyle: {} },
-  handlers = { image: null, div: null, heading: null, paragraph: null },
+  children,
+  styles = {
+    image: {},
+    container: {},
+    heading: {},
+    paragraph: {},
+    imageContainer: {},
+  },
+  handlers = {
+    image: null,
+    container: null,
+    heading: null,
+    paragraph: null,
+    imageContainer: null,
+  },
 }) => {
   return (
     <DefaultDiv
+      handler={handlers.container}
       style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: position,
-        ...styles.cardStyle,
+        textAlign,
+        ...styles.container,
       }}
     >
-      <DefaultImage
-        src={src}
-        width={imageWidth}
-        height={imageHeight}
+      <DefaultDiv
+        handler={handlers.imageContainer}
         styles={{
-          cursor: handlers.image ? "pointer" : "",
-          ...styles.image,
+          display: "flex",
+          justifyContent: imagePosition,
+          ...styles.imageContainer,
         }}
-      />
-      <DefaultDiv style={{ display: "flex", flexDirection: "column" }}>
+      >
+        <DefaultImage
+          src={imageSrc}
+          handler={handlers.image}
+          width={imageWidth}
+          height={imageHeight}
+          styles={{
+            ...styles.image,
+          }}
+        />
+      </DefaultDiv>
+      {customHeading ? (
+        customHeading
+      ) : (
         <DefaultHeading
-          tag={tag}
-          textAlign={textAlign}
+          tag={headingTag}
           handler={handlers.heading}
           styles={{
+            marginBottom: "15px",
             ...styles.heading,
           }}
         >
           {headingText}
         </DefaultHeading>
-        <DefaultParagraph
-          textAlign={textAlign}
-          styles={{
-            cursor: handlers.paragraph ? "pointer" : " ",
-            ...styles.paragraph,
-          }}
-        >
-          {paragraphText}
-        </DefaultParagraph>
-      </DefaultDiv>
-      <div>{children}</div>
+      )}
+      <DefaultParagraph
+        handler={handlers.paragraph}
+        styles={{
+          marginBottom: "15px",
+          ...styles.paragraph,
+        }}
+      >
+        {paragraphText}
+      </DefaultParagraph>
+      {children}
     </DefaultDiv>
   );
 };
 
-export { DefaultCard, CardWithImage };
+const CardWithReversibleImage = ({
+  shouldFlip = false,
+  headingTag = "h1",
+  imageSrc,
+  imageWidth = "100px",
+  imageHeight = "100px",
+  textAlign = "left",
+  headingText,
+  paragraphText,
+  children,
+  styles = {
+    image: {},
+    container: {},
+    heading: {},
+    paragraph: {},
+    flipDivs: { container: {}, div1: {}, div2: {} },
+  },
+  handlers = {
+    image: null,
+    container: null,
+    heading: null,
+    paragraph: null,
+    flipDivs: { container: null, div1: null, div2: null },
+  },
+}) => {
+  return (
+    <FlipDivs
+      shouldFlip={shouldFlip}
+      content1={
+        <DefaultImage
+          src={imageSrc}
+          handler={handlers.image}
+          width={imageWidth}
+          height={imageHeight}
+          styles={{
+            ...styles.image,
+          }}
+        />
+      }
+      content2={
+        <DefaultDiv
+          handler={handlers.container}
+          style={{
+            textAlign,
+            ...styles.container,
+          }}
+        >
+          <DefaultHeading
+            tag={headingTag}
+            handler={handlers.heading}
+            styles={{
+              marginBottom: "15px",
+              ...styles.heading,
+            }}
+          >
+            {headingText}
+          </DefaultHeading>
+          <DefaultParagraph
+            handler={handlers.paragraph}
+            styles={{
+              marginBottom: "15px",
+              ...styles.paragraph,
+            }}
+          >
+            {paragraphText}
+          </DefaultParagraph>
+          {children}
+        </DefaultDiv>
+      }
+      styles={{
+        container: { ...styles.flipDivs.container },
+        div1: { ...styles.flipDivs.div1 },
+        div2: { width: "100%", ...styles.flipDivs.div2 },
+      }}
+      handlers={handlers.flipDivs}
+    />
+  );
+};
+
+export { DefaultCard, CardWithImage, CardWithReversibleImage };

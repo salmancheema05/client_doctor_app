@@ -1,5 +1,4 @@
 import React from "react";
-import { DefaultBox } from "../../../components/boxes";
 import DefaultGrid from "../../../components/grids";
 import DefaultGridItem from "../../../components/gridItems";
 import { HEADING, PARAGRAPH } from "../constants";

@@ -4,9 +4,27 @@ import React from "react";
 const buttonMappings = {
   default: {
     name: "Default",
-    style: { backgroundColor: "blue", color: "white", padding: "10px" },
+    style: {
+      backgroundColor: "#1a5bff",
+      width: "100%",
+      color: "white",
+      padding: "10px ",
+      borderRadius: "10px",
+    },
   },
-  ok: { name: "Ok", style: { backgroundColor: "green" } },
+  out_line: {
+    name: "Out Line",
+    style: {
+      padding: "5px 20px",
+      border: "2px solid #a1bfc3",
+      borderRadius: "10px",
+      backgroundColor: "transparent",
+      color: "black",
+      fontSize: "16px",
+      cursor: "pointer",
+      textDecoration: "none",
+    },
+  },
   cancel: { name: "Cancel", style: { backgroundColor: "red" } },
   login: {
     name: "Login",
@@ -20,7 +38,7 @@ const buttonMappings = {
   request_an_appointment: {
     name: "Request An Appointment",
     style: {
-      backgroundColor: "blue",
+      backgroundColor: "#1a5bff",
       borderRadius: "40px",
       borderRadius: "40px",
       color: "white",

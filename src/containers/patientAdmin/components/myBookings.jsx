@@ -1,38 +1,33 @@
 import React from "react";
+import DefaultHeading from "../../../components/headings";
 import DefaultGrid from "../../../components/grids";
 import DefaultGridItem from "../../../components/gridItems";
-import { CardWithImage, DefaultCard } from "../../../components/cards";
-import doctorimage2 from "../../../images/doctorimage2.jpg";
 import {
   CircleIconAndTextFooter,
   RatingWithViewsCountAndSquareBadgeFooter,
 } from "../../../components/cardFooter";
+import { CardWithImage } from "../../../components/cards";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import StarRateIcon from "@mui/icons-material/StarRate";
-
-const GreateDoctor = () => {
+import doctorimage2 from "../../../images/doctorimage2.jpg";
+const MyBookings = () => {
   return (
-    <DefaultGrid styles={{ padding: "0% 5%" }}>
+    <DefaultGrid columnSpacing={{ xs: 1, sm: 3, md: 7, lg: 6 }}>
       <DefaultGridItem
         xs={12}
-        sm={6}
-        md={6}
+        sm={12}
+        md={12}
         lg={12}
-        styles={{ padding: "3% 0%" }}
+        styles={{ marginBottom: "5%" }}
       >
-        <DefaultCard
-          tag="h2"
-          headingText="Our Greate Doctor"
-          textAlign="center"
-        />
+        <DefaultHeading tag="h2">My Bookings</DefaultHeading>
       </DefaultGridItem>
-
       <DefaultGridItem
         xs={12}
-        sm={6}
-        md={6}
-        lg={4}
-        styles={{ padding: "0px 2%", marginBottom: "2%" }}
+        sm={12}
+        md={12}
+        lg={6}
+        styles={{ marginBottom: "10%" }}
       >
         <CardWithImage
           imageSrc={doctorimage2}
@@ -58,10 +53,10 @@ const GreateDoctor = () => {
       </DefaultGridItem>
       <DefaultGridItem
         xs={12}
-        sm={6}
-        md={6}
-        lg={4}
-        styles={{ padding: "0px 2%", marginBottom: "2%" }}
+        sm={12}
+        md={12}
+        lg={6}
+        styles={{ marginBottom: "10%" }}
       >
         <CardWithImage
           imageSrc={doctorimage2}
@@ -85,13 +80,12 @@ const GreateDoctor = () => {
           />
         </CardWithImage>
       </DefaultGridItem>
-
       <DefaultGridItem
         xs={12}
-        sm={6}
-        md={6}
-        lg={4}
-        styles={{ padding: "0px 2%", marginBottom: "2%" }}
+        sm={12}
+        md={12}
+        lg={6}
+        styles={{ marginBottom: "10%" }}
       >
         <CardWithImage
           imageSrc={doctorimage2}
@@ -119,4 +113,4 @@ const GreateDoctor = () => {
   );
 };
 
-export default GreateDoctor;
+export default MyBookings;

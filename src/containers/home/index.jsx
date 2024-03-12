@@ -5,7 +5,7 @@ import BestNation from "./components/bestNation";
 import { DefaultDiv } from "../../components/divs";
 import MedicalServices from "./components/medicalservices";
 import Treatment from "./components/treatment";
-import GreateDoctor from "./components/greateDoctor";
+import GreatDoctor from "./components/greatDoctor";
 
 const Home = () => {
   return (
@@ -15,7 +15,7 @@ const Home = () => {
       <BestNation />
       <MedicalServices />
       <Treatment />
-      <GreateDoctor />
+      <GreatDoctor />
     </DefaultDiv>
   );
 };

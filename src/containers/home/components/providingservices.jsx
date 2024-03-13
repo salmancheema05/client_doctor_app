@@ -10,7 +10,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 const Services = () => {
   return (
     <ThemeGrid>
-      <DefaultGridItem sm={12} md={12} lg={12}>
+      <DefaultGridItem xs={12} sm={12} md={12} lg={12} xl={12}>
         <DefaultCard
           headingText="Providing the best Medical Services "
           textAlign="center"
@@ -22,7 +22,14 @@ const Services = () => {
           textAlign="center"
         />
       </DefaultGridItem>
-      <DefaultGridItem sm={6} md={4} lg={4} styles={{ marginTop: "5%" }}>
+      <DefaultGridItem
+        xs={12}
+        sm={12}
+        md={6}
+        lg={4}
+        xl={4}
+        styles={{ marginTop: "5%" }}
+      >
         <CardWithImage
           imageSrc={map}
           imagePosition="center"
@@ -34,7 +41,14 @@ const Services = () => {
           <CircleIconCardFooter icon={<ArrowForwardIcon />} />
         </CardWithImage>
       </DefaultGridItem>
-      <DefaultGridItem sm={6} md={4} lg={4} styles={{ marginTop: "5%" }}>
+      <DefaultGridItem
+        xs={12}
+        sm={12}
+        md={6}
+        lg={4}
+        xl={4}
+        styles={{ marginTop: "5%" }}
+      >
         <CardWithImage
           imageSrc={map}
           imagePosition="center"
@@ -46,7 +60,14 @@ const Services = () => {
           <CircleIconCardFooter icon={<ArrowForwardIcon />} />
         </CardWithImage>
       </DefaultGridItem>
-      <DefaultGridItem sm={6} md={4} lg={4} styles={{ marginTop: "5%" }}>
+      <DefaultGridItem
+        xs={12}
+        sm={12}
+        md={6}
+        lg={4}
+        xl={4}
+        styles={{ marginTop: "5%" }}
+      >
         <CardWithImage
           imageSrc={map}
           imagePosition="center"

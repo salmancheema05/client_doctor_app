@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import DefaultGrid, { ThemeGrid } from "./grids";
 import DefaultGridItem from "./grids";
 import { DefaultLi, DefaultLinkImage } from "./links";
@@ -15,9 +15,25 @@ import {
 } from "react-icons/fa";
 
 const GuestFooter = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1200 && window.innerWidth > 600); // Adjust breakpoint as needed
+    };
+
+    // Initial check on mount
+    handleResize();
+
+    // Event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <ThemeGrid styles={{ backgroundColor: "skyblue" }}>
-      <DefaultGridItem xs={12} sm={6} md={4} lg={3} xl={3}>
+      <DefaultGridItem xs={6} sm={6} md={4} lg={3} xl={3}>
         <div
           style={{ width: "100%", marginBottom: "20px", padding: "0px 10px " }}
         >
@@ -39,7 +55,7 @@ const GuestFooter = () => {
         </div>
       </DefaultGridItem>
 
-      <DefaultGridItem xs={12} sm={6} md={4} lg={3} xl={3}>
+      <DefaultGridItem xs={6} sm={6} md={4} lg={3} xl={3}>
         <div style={{ width: "100%" }}>
           <DefaultHeading tag="h2">Quick Links</DefaultHeading>
         </div>
@@ -53,7 +69,7 @@ const GuestFooter = () => {
         </div>
       </DefaultGridItem>
 
-      <DefaultGridItem xs={12} sm={6} md={4} lg={3} xl={3}>
+      <DefaultGridItem xs={6} sm={6} md={4} lg={3} xl={3}>
         <div style={{ width: "100%" }}>
           <DefaultHeading tag="h2">I want to:</DefaultHeading>
         </div>
@@ -66,11 +82,11 @@ const GuestFooter = () => {
           </DefaultDynamicTagText>
         </div>
       </DefaultGridItem>
-      <DefaultGridItem xs={12} sm={6} md={4} lg={3} xl={3} styles={{}}>
+      <DefaultGridItem xs={6} sm={6} md={4} lg={3} xl={3} styles={{}}>
         <div style={{ width: "100%", paddingLeft: "5%" }}>
           <DefaultHeading tag="h2">Support</DefaultHeading>
         </div>
-        <div style={{ marginTop: "-50px" }}>
+        <div style={{ marginTop: isMobile ? "20px" : "-50px" }}>
           <DefaultDynamicTagText tag="ul" styles={{ listStyleType: "none" }}>
             <DefaultLi styles={{ marginBottom: "20px" }}>Home</DefaultLi>
             <DefaultLi styles={{ marginBottom: "20px" }}>About Us</DefaultLi>

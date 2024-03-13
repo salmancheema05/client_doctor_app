@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { DefaultBox } from "../../../components/boxes";
 import { ThemeGrid } from "../../../components/grids";
 import DefaultGridItem from "../../../components/gridItems";
@@ -6,33 +6,63 @@ import { CardWithReversibleImage } from "../../../components/cards";
 import doctorImage2 from "../../../images/doctorimage2.jpg";
 import { DefaultCardFooter } from "../../../components/cardFooter";
 const BestNation = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 960);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <ThemeGrid>
       <DefaultGridItem sm={12} md={12} lg={12}>
         <CardWithReversibleImage
-          // shouldFlip={true}
+          //shouldFlip={true}
           imageSrc={doctorImage2}
-          imageWidth="80%"
-          imageHeight="100%"
+          imageWidth={isMobile ? "100%" : "300"}
+          imageHeight={isMobile ? "350" : "400"}
+          headingTag="h1"
           headingText="Proud to be one of the nations best"
-          paragraphText="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quia, vero, tempore, 
-            sit quis eum obcaecati ipsam mollitia minima ea repudiandae accusamus.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quia, vero, tempore, 
-            sit quis eum obcaecati ipsam mollitia minima ea repudiandae accusamus.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quia, vero, tempore, 
-            sit quis eum obcaecati ipsam mollitia minima ea repudiandae accusamus.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quia, vero, tempore, 
-            sit quis eum obcaecati ipsam mollitia minima ea repudiandae accusamus.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quia, vero, tempore, 
-            sit quis eum obcaecati ipsam mollitia minima ea repudiandae accusamus.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quia, vero, tempore, 
-            sit quis eum obcaecati ipsam mollitia minima ea repudiandae accusamus.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quia, vero, tempore, 
-            sit quis eum obcaecati ipsam mollitia minima ea repudiandae accusamus.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quia, vero, tempore, 
-            sit quis eum obcaecati ipsam mollitia minima ea repudiandae accusamus."
+          paragraphText={
+            <>
+              <div style={{ marginBottom: "10px" }}>
+                {
+                  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quia, vero, tempore,sit quis eum obcaecati ipsam mollitia minima ea repudiandae accusamus.Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+                }
+              </div>
+              <div style={{ marginBottom: "50px" }}>
+                {
+                  "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quia, vero, tempore,sit quis eum obcaecati ipsam mollitia minima ea repudiandae accusamus.Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+                }
+              </div>
+            </>
+          }
           styles={{
             flipDivs: {
-              container: {},
-              div1: { width: "60%" },
+              container: {
+                display: isMobile ? "" : "flex",
+                justifyContent: isMobile ? "" : "center",
+              },
+              div1: {},
+              div2: { padding: isMobile?"0px 0px":"0px 100px" },
             },
-            heading: { fontSize: "40px" },
+            heading: { fontSize: isMobile ? "25px" : "45px", margin: "3% 0%" },
+            paragraph: { lineHeight: "25px" },
           }}
         >
-          <DefaultCardFooter buttonKey="request_an_appointment">
+          <DefaultCardFooter
+            styles={{
+              display: "flex",
+              flexDirction: "column",
+              alignItems: "flex-end",
+            }}
+            buttonKey="request_an_appointment"
+          >
             Learn More
           </DefaultCardFooter>
         </CardWithReversibleImage>

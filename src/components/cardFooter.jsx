@@ -7,7 +7,11 @@ import DefaultParagraph from "./paragraphs";
 
 const DefaultCardFooter = ({ buttonKey, children, styles }) => {
   return (
-    <DefaultDiv style={{ ...styles }}>
+    <DefaultDiv
+      style={{
+        ...styles,
+      }}
+    >
       <DefaultButton buttonKey={buttonKey}>{children}</DefaultButton>
     </DefaultDiv>
   );

@@ -12,7 +12,14 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 const GreatDoctor = () => {
   return (
     <ThemeGrid>
-      <DefaultGridItem xs={12} sm={6} md={6} lg={12} styles={{ padding: "3%" }}>
+      <DefaultGridItem
+        xs={12}
+        sm={12}
+        md={12}
+        lg={12}
+        xl={12}
+        styles={{ padding: "3%" }}
+      >
         <DefaultCard
           tag="h2"
           headingText="Our Great Doctor"
@@ -25,6 +32,7 @@ const GreatDoctor = () => {
         sm={6}
         md={6}
         lg={4}
+        xl={4}
         styles={{ padding: "0px 2%", marginBottom: "2%" }}
       >
         <CardWithImage
@@ -54,6 +62,7 @@ const GreatDoctor = () => {
         sm={6}
         md={6}
         lg={4}
+        xl={4}
         styles={{ padding: "0px 2%", marginBottom: "2%" }}
       >
         <CardWithImage
@@ -84,6 +93,7 @@ const GreatDoctor = () => {
         sm={6}
         md={6}
         lg={4}
+        xl={4}
         styles={{ padding: "0px 2%", marginBottom: "2%" }}
       >
         <CardWithImage

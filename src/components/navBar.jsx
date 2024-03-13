@@ -9,16 +9,13 @@ const NavBar = () => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 900); // Adjust breakpoint as needed
+      setIsMobile(window.innerWidth < 900);
     };
 
-    // Initial check on mount
     handleResize();
 
-    // Event listener for window resize
     window.addEventListener("resize", handleResize);
 
-    // Clean up on component unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (

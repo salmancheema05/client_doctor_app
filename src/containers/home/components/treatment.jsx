@@ -12,7 +12,7 @@ const Treatment = () => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 1100); // Adjust breakpoint as needed
+      setIsMobile(window.innerWidth < 900); // Adjust breakpoint as needed
     };
 
     // Initial check on mount
@@ -29,22 +29,21 @@ const Treatment = () => {
     <ThemeGrid>
       <DefaultGridItem sm={12} md={12} lg={12}>
         <CardWithReversibleImage
-          shouldFlip={true}
+          shouldFlip={isMobile ? false : true}
           imageSrc={doctorImage2}
-          imageWidth="80%"
-          imageHeight="100%"
+          imageWidth={isMobile ? "100%" : "300"}
+          imageHeight={isMobile ? "350" : "400"}
           headingText="Get virtual treatment any time."
           styles={{
             flipDivs: {
               container: {
-                marginLeft: "0%",
-                marginRight: "0%",
+                display: isMobile ? "" : "flex",
+                justifyContent: isMobile ? "center" : "",
               },
-              div1: { width: "60%" },
+              div1: {},
             },
             heading: {
-              fontSize: isMobile ? "55px" : "40px",
-              color: isMobile ? "blue" : "",
+              fontSize: isMobile ? "35px" : "40px",
             },
           }}
         >

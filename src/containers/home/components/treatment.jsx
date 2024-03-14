@@ -26,7 +26,7 @@ const Treatment = () => {
   }, []);
 
   return (
-    <ThemeGrid>
+    <ThemeGrid styles={{ padding: "5% 10%" }}>
       <DefaultGridItem sm={12} md={12} lg={12}>
         <CardWithReversibleImage
           shouldFlip={isMobile ? false : true}

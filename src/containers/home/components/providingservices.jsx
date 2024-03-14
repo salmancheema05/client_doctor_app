@@ -17,8 +17,11 @@ const Services = () => {
           CircleIconCardFooter=""
         />
         <DefaultCard
-          paragraphText="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere quia, vero, tempore, 
-            sit quis eum obcaecati ipsam mollitia minima ea repudiandae accusamus."
+          paragraphText="Lorem ipsum dolor sit amet consectetur, adipisicing elit."
+          textAlign="center"
+        />
+        <DefaultCard
+          paragraphText="Lorem ipsum dolor sit amet consectetur."
           textAlign="center"
         />
       </DefaultGridItem>

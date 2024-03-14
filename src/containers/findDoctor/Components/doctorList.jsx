@@ -1,5 +1,5 @@
 import React from "react";
-import DefaultGrid from "../../../components/grids";
+import { ThemeGrid } from "../../../components/grids";
 import DefaultGridItem from "../../../components/gridItems";
 import { CardWithImage, DefaultCard } from "../../../components/cards";
 import doctorimage2 from "../../../images/doctorimage2.jpg";
@@ -12,7 +12,7 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 
 const DoctorList = () => {
   return (
-    <DefaultGrid styles={{ padding: "10% 5%" }}>
+    <ThemeGrid styles={{ paddingTop: "5%" }}>
       <DefaultGridItem
         xs={12}
         sm={6}
@@ -104,7 +104,7 @@ const DoctorList = () => {
           />
         </CardWithImage>
       </DefaultGridItem>
-    </DefaultGrid>
+    </ThemeGrid>
   );
 };
 

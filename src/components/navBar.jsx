@@ -21,7 +21,7 @@ const NavBar = () => {
   return (
     <DefaultGrid
       styles={{
-        backgroundColor: "LightBlue",
+        background: "linear-gradient(to right, #bee8ef 10%, #fcfbfa 50%)",
         height: "100px",
         marginTop: "0px",
       }}

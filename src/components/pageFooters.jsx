@@ -32,7 +32,7 @@ const GuestFooter = () => {
   }, []);
 
   return (
-    <ThemeGrid styles={{ backgroundColor: "skyblue" }}>
+    <ThemeGrid styles={{ backgroundColor: "white" }}>
       <DefaultGridItem xs={6} sm={6} md={4} lg={3} xl={3}>
         <div
           style={{ width: "100%", marginBottom: "20px", padding: "0px 10px " }}

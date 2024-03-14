@@ -40,8 +40,8 @@ const Header = () => {
   return (
     <DefaultDiv
       styles={{
+        background: "linear-gradient(to right, #bee8ef 10%, #fcfbfa 50%)",
         padding: "5% 5%",
-        background: "lightblue",
       }}
     >
       <DefaultGrid spacing={10}>

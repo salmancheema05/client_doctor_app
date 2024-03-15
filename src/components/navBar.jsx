@@ -94,7 +94,7 @@ const NavBar = () => {
               marginBottom: isMobile ? "4%" : "",
             }}
           >
-            <LinkButtton buttonKey="login" />
+            <LinkButtton buttonKey="login" to="/login" />
           </DefaultGridItem>
           {/*login Button box end  */}
         </DefaultGrid>

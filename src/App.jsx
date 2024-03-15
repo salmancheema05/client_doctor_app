@@ -7,6 +7,7 @@ import FindDoctor from "./containers/findDoctor/index";
 import DoctorDetail from "./containers/doctorDetail/index.jsx";
 import PatientAdmin from "./containers/patientAdmin/index.jsx";
 import DoctorAdmin from "./containers/doctorAdmin/index.jsx";
+import Login from "./containers/login/index.jsx";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const App = () => {
         {
           path: "/doctoradmin",
           element: <DoctorAdmin />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
         },
       ],
     },

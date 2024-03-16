@@ -8,6 +8,7 @@ import DoctorDetail from "./containers/doctorDetail/index.jsx";
 import PatientAdmin from "./containers/patientAdmin/index.jsx";
 import DoctorAdmin from "./containers/doctorAdmin/index.jsx";
 import Login from "./containers/login/index.jsx";
+import SignUp from "./containers/signUp/index.jsx";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const App = () => {
         {
           path: "/login",
           element: <Login />,
+        },
+        {
+          path: "/signup",
+          element: <SignUp />,
         },
       ],
     },

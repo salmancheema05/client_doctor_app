@@ -13,28 +13,8 @@ import { DefaultExperienceTemplate } from "../../../components/experienceTemplat
 
 const OverView = () => {
   return (
-    <DefaultGrid>
-      <DefaultGridItem
-        xs={12}
-        sm={12}
-        md={12}
-        lg={12}
-        xl={12}
-        styles={{ backgroundColor: "#fff8e7", margin: "3% 10%" }}
-      >
-        <DefaultParagraph styles={{ marginBottom: "2%" }}>
-          To get approval please complate you profile.
-        </DefaultParagraph>
-      </DefaultGridItem>
-
-      <DefaultGridItem
-        xs={12}
-        sm={12}
-        md={12}
-        lg={12}
-        xl={12}
-        styles={{ margin: "0% 10%" }}
-      >
+    <>
+      <DefaultGridItem xs={12} sm={12} md={12} lg={12} xl={12}>
         <ProfileCard
           imageSrc={Doctorimage3}
           headingTag="h4"
@@ -49,7 +29,7 @@ const OverView = () => {
               container: {},
               div1: {},
               div2: {
-                marginTop: "5%",
+                marginTop: "9%",
                 marginLeft: "10px",
               },
             },
@@ -68,14 +48,7 @@ const OverView = () => {
         />
       </DefaultGridItem>
 
-      <DefaultGridItem
-        xs={12}
-        sm={12}
-        md={12}
-        lg={12}
-        xl={12}
-        styles={{ margin: "3% 10%" }}
-      >
+      <DefaultGridItem xs={12} sm={12} md={12} lg={12} xl={12}>
         <HeadingWithThreeParts
           tag="h2"
           part1="About of"
@@ -98,7 +71,7 @@ const OverView = () => {
         md={12}
         lg={12}
         xl={12}
-        styles={{ margin: "3% 10%" }}
+        styles={{ margin: "10% 0%" }}
       >
         <DefaultEduction
           educationArray={[
@@ -118,12 +91,12 @@ const OverView = () => {
         md={12}
         lg={12}
         xl={12}
-        styles={{ padding: "3% 11%" }}
+        styles={{ margin: "5% 0%" }}
       >
         <DefaultHeading tag="h1">Experience</DefaultHeading>
       </DefaultGridItem>
 
-      <DefaultGrid styles={{ padding: "0% 10%" }}>
+      <DefaultGrid styles={{}}>
         <DefaultGridItem xs={12} sm={12} md={6} lg={4} xl={4}>
           <DefaultExperienceTemplate
             startYear="1971"
@@ -141,7 +114,7 @@ const OverView = () => {
           />
         </DefaultGridItem>
       </DefaultGrid>
-    </DefaultGrid>
+    </>
   );
 };
 

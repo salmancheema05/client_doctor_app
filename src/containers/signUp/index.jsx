@@ -4,7 +4,7 @@ import DefaultGridItem from "../../components/gridItems";
 import { HeadingWithThreeParts } from "../../components/headings";
 import DefaultParagraph from "../../components/paragraphs";
 import Form from "./components/form";
-const Login = () => {
+const SignUp = () => {
   return (
     <ThemeGrid>
       <DefaultGridItem
@@ -24,9 +24,8 @@ const Login = () => {
         <DefaultGrid>
           <DefaultGridItem xs={12} sm={12} md={12} lg={12} xl={12}>
             <HeadingWithThreeParts
-              part1="Hello!"
-              part2="Welcome"
-              part3="Back"
+              part1="Create an"
+              part2="Account"
               styles={{
                 part2: { color: "blue" },
               }}
@@ -64,4 +63,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

@@ -33,7 +33,7 @@ const DoctorAdmin = () => {
         md={8}
         lg={9}
         xl={9}
-        styles={{ width: "100%", height: "100%", padding: "3% 10%" }}
+        styles={{ width: "100%", height: "100%", padding: "3% 5%" }}
       >
         <DefaultGrid>
           <DefaultGridItem

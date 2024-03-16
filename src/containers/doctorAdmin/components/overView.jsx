@@ -1,7 +1,7 @@
 import React from "react";
 import DefaultGrid from "../../../components/grids";
 import DefaultGridItem from "../../../components/gridItems";
-import Doctorimage3 from "../../../images/doctorimage3.jpg";
+import Doctorimage2 from "../../../images/doctorimage2.jpg";
 import DefaultParagraph from "../../../components/paragraphs";
 import { ProfileCard } from "../../../components/Profile";
 import { RatingWithViewsCount } from "../../../components/icons";
@@ -16,7 +16,7 @@ const OverView = () => {
     <>
       <DefaultGridItem xs={12} sm={12} md={12} lg={12} xl={12}>
         <ProfileCard
-          imageSrc={Doctorimage3}
+          imageSrc={Doctorimage2}
           headingTag="h4"
           imageWidth="300"
           imageHeight="200"
@@ -29,7 +29,7 @@ const OverView = () => {
               container: {},
               div1: {},
               div2: {
-                marginTop: "9%",
+                marginTop: "2%",
                 marginLeft: "10px",
               },
             },

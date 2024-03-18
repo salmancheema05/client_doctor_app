@@ -5,6 +5,8 @@ import DoctorProfile from "./components/doctorProfile";
 import { DefaultButton } from "../../components/buttons";
 import OverView from "./components/overView";
 import DefaultParagraph from "../../components/paragraphs";
+import Form from "./components/form";
+
 const DoctorAdmin = () => {
   const [overView, setOverView] = useState(true);
   const [appointment, setAppointment] = useState(false);
@@ -53,7 +55,7 @@ const DoctorAdmin = () => {
           ) : appointment ? (
             "appointment"
           ) : profile ? (
-            "profile"
+            <Form />
           ) : null}
         </DefaultGrid>
       </DefaultGridItem>

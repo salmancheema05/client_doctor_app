@@ -18,7 +18,7 @@ const OverView = () => {
         <ProfileCard
           imageSrc={Doctorimage2}
           headingTag="h4"
-          imageWidth="300"
+          imageWidth="200"
           imageHeight="200"
           headingText="Dr Salman Akbar"
           title="Surgeon"

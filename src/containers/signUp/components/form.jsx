@@ -4,16 +4,19 @@ import { DefaultButton } from "../../../components/buttons";
 import { useForm, FormProvider } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../../firebase";
+import { collection, addDoc } from "firebase/firestore";
 const Form = () => {
   const schema = yup.object().shape({
-    fullName: yup.string().required(),
+    full_name: yup.string().required(),
     email: yup.string().email().required(),
     password: yup.string().min(6).required(),
-    whoAreYou: yup.string().required("Option is required"),
+    user_status: yup.string().required("Option is required"),
     gender: yup.string().required("Option is required"),
   });
   const methods = useForm({ resolver: yupResolver(schema) });
-  const whoAreYouOptional = [
+  const user_status = [
     { label: "Doctor", value: "doctor" },
     { label: "Patient", value: "patient" },
   ];
@@ -22,16 +25,33 @@ const Form = () => {
     { label: "Female", value: "female" },
   ];
 
-  const onSubmit = (data) => {
-    console.log(data);
-    methods.reset();
+  const onSubmit = async (data) => {
+    try {
+      const response = await createUserWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+      const docRef = collection(db, "users");
+      await addDoc(docRef, {
+        full_name: data.full_name,
+        email: data.email,
+        gender: data.gender,
+        user_status: data.user_status,
+        auth_id: response.user.uid,
+      });
+      console.log(response);
+      methods.reset();
+    } catch (error) {
+      console.log("sign up form", error);
+    }
   };
 
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
         <div style={{ margin: "2% 0%" }}>
-          <DefaultInput type="text" name="fullName" placeholder="Full Name" />
+          <DefaultInput type="text" name="full_name" placeholder="Full Name" />
         </div>
         <div style={{ margin: "2% 0%" }}>
           <DefaultInput type="text" name="email" placeholder="Email" />
@@ -52,9 +72,9 @@ const Form = () => {
           }}
         >
           <DefaultSelectInput
-            name="whoAreYou"
+            name="user_status"
             label="who Are You"
-            options={whoAreYouOptional}
+            options={user_status}
           />
           <DefaultSelectInput name="gender" label="Gender" options={gender} />
         </div>

@@ -4,8 +4,13 @@ import DefaultGridItem from "./gridItems";
 import logo from "../images/logo.png";
 import { DefaultLinkImage, DefaultLi, LinkButtton } from "./links";
 import { DefaultDynamicTagText } from "./dynamicTagTexts";
-
+import { useSelector } from "react-redux";
+import { LinkCircleImage } from "./links";
+import Doctor2 from "../images/doctorimage2.jpg";
 const NavBar = () => {
+  const token = useSelector((state) => state.login.user?.token);
+  const user_status = useSelector((state) => state.login.user?.user_status);
+
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => {
@@ -94,7 +99,15 @@ const NavBar = () => {
               marginBottom: isMobile ? "4%" : "",
             }}
           >
-            <LinkButtton buttonKey="login" to="/login" />
+            {token ? (
+              <LinkCircleImage
+                to={`${user_status}admin`}
+                src={Doctor2}
+                styles={{ width: "40px", height: "40px", borderRadius: "100%" }}
+              />
+            ) : (
+              <LinkButtton buttonKey="login" to="/login" />
+            )}
           </DefaultGridItem>
           {/*login Button box end  */}
         </DefaultGrid>

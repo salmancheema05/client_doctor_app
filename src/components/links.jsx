@@ -9,6 +9,23 @@ const DefaultLinkImage = ({ src, to, styles }) => {
     </Link>
   );
 };
+const LinkCircleImage = ({ src, to, styles }) => {
+  return (
+    <Link to={to}>
+      <img
+        src={src}
+        style={{
+          width: "40px",
+          height: "40px",
+          borderRadius: "100%",
+          overflow: "hidden",
+          border: "2px solid gray",
+          ...styles,
+        }}
+      />
+    </Link>
+  );
+};
 const DefaultLi = ({ children, to, styles }) => {
   return (
     <Link to={to} style={{ color: "gray", textDecoration: "none" }}>
@@ -26,4 +43,4 @@ const LinkButtton = ({ btnName, to, styles, buttonKey }) => {
   );
 };
 
-export { DefaultLinkImage, DefaultLi, LinkButtton };
+export { DefaultLinkImage, DefaultLi, LinkButtton, LinkCircleImage };

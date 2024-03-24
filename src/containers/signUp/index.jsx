@@ -1,10 +1,12 @@
 import React from "react";
 import DefaultGrid, { ThemeGrid } from "../../components/grids";
 import DefaultGridItem from "../../components/gridItems";
-import { HeadingWithThreeParts } from "../../components/headings";
+import { DynamicTagTextWithThreeParts } from "../../components/dynamicTagTexts";
 import DefaultParagraph from "../../components/paragraphs";
 import Form from "./components/form";
+import { useTheme } from "@mui/material/styles";
 const SignUp = () => {
+  const theme = useTheme();
   return (
     <ThemeGrid>
       <DefaultGridItem
@@ -23,11 +25,11 @@ const SignUp = () => {
       >
         <DefaultGrid>
           <DefaultGridItem xs={12} sm={12} md={12} lg={12} xl={12}>
-            <HeadingWithThreeParts
+            <DynamicTagTextWithThreeParts
               part1="Create an"
               part2="Account"
               styles={{
-                part2: { color: "blue" },
+                part2: { color: theme.heighLight.heighLightColor },
               }}
             />
           </DefaultGridItem>

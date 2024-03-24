@@ -108,7 +108,9 @@ const Form = () => {
               name="fullName"
               label="Full Name"
               placeholder="Full Name"
-              styles={{ border: "1px solid lightgray" }}
+              styles={{
+                border: "1px solid lightgray",
+              }}
             />
           </div>
           <div style={{ margin: "2% 0%" }}>
@@ -185,7 +187,7 @@ const Form = () => {
                 <DefaultGridItem xs={6} sm={6} md={6} lg={6} xl={6}>
                   <DynamicInput
                     type="date"
-                    name="education"
+                    name="qualification"
                     label="Start Date"
                     index={index}
                     fieldName="startDate"

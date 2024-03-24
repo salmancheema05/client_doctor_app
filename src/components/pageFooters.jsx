@@ -13,8 +13,9 @@ import {
   FaTwitter,
   FaLinkedinIn,
 } from "react-icons/fa";
-
+import { useTheme } from "@mui/material/styles";
 const GuestFooter = () => {
+  const theme = useTheme();
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => {
@@ -32,7 +33,7 @@ const GuestFooter = () => {
   }, []);
 
   return (
-    <ThemeGrid styles={{ backgroundColor: "white" }}>
+    <ThemeGrid styles={{ backgroundColor: theme.background.footerBg }}>
       <DefaultGridItem xs={6} sm={6} md={4} lg={3} xl={3}>
         <div
           style={{ width: "100%", marginBottom: "20px", padding: "0px 10px " }}

@@ -1,15 +1,16 @@
 import React from "react";
-
 import DefaultHeading from "./headings";
 import DefaultParagraph from "./paragraphs";
+import { useTheme } from "@mui/material/styles";
 const DefaultExperienceTemplate = ({
   instituteName,
   departmentName,
   startYear,
   endYear,
 }) => {
+  const theme = useTheme();
   return (
-    <div style={{ backgroundColor: "#fff8e7", padding: "3%" }}>
+    <div style={{ backgroundColor: theme.background.box, padding: "3%" }}>
       <div>
         <DefaultParagraph styles={{ color: "#e5c58d" }}>
           {startYear}-{endYear}

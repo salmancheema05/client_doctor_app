@@ -1,10 +1,14 @@
 import React from "react";
 
-const DefaultSpan = ({ styles, children, ...rest }) => {
+const DefaultSpan = ({ styles, children, handler = null, ...rest }) => {
   return (
-    <spen style={{ ...styles }} {...rest}>
+    <span
+      onClick={handler}
+      style={{ cursor: handler ? "pointer" : " ", ...styles }}
+      {...rest}
+    >
       {children}
-    </spen>
+    </span>
   );
 };
 

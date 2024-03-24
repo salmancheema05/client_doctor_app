@@ -17,6 +17,7 @@ const DefaultCard = ({
 }) => {
   return (
     <DefaultDiv
+      handler={handlers.div}
       style={{
         textAlign,
         ...styles.div,

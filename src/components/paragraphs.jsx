@@ -1,8 +1,10 @@
+import { useTheme } from "@mui/material/styles";
 const DefaultParagraph = ({ handler = null, styles, children, ...rest }) => {
+  const theme = useTheme();
   return (
     <p
       style={{
-        color: "gray",
+        color: theme.paragraph.main,
         cursor: handler ? "pointer" : " ",
         ...styles,
       }}

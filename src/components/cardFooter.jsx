@@ -5,14 +5,25 @@ import { CircleIcon, RatingWithViewsCount } from "./icons";
 import { CountBadge, SquareBadge } from "./badges";
 import DefaultParagraph from "./paragraphs";
 
-const DefaultCardFooter = ({ buttonKey, children, styles }) => {
+const DefaultCardFooter = ({
+  buttonKey = "default",
+  handlers = { div: null, button: null },
+  styles = { div: {}, button: {} },
+}) => {
   return (
     <DefaultDiv
-      style={{
-        ...styles,
+      handler={handlers.div}
+      styles={{
+        ...styles.div,
       }}
     >
-      <DefaultButton buttonKey={buttonKey}>{children}</DefaultButton>
+      <DefaultButton
+        buttonKey={buttonKey}
+        handler={handlers.button}
+        styles={{
+          ...styles.button,
+        }}
+      />
     </DefaultDiv>
   );
 };
@@ -72,7 +83,7 @@ const CircleIconAndTextFooter = ({
   styles,
   icon,
   string,
-  handler,
+  handler = null,
   shouldFlip,
 }) => {
   return (

@@ -3,13 +3,15 @@ import { ThemeGrid } from "../../../components/grids";
 import DefaultGridItem from "../../../components/gridItems";
 import DefaultHeading from "../../../components/headings";
 import { DefaultButton } from "../../../components/buttons";
-
+import { useTheme } from "@mui/material/styles";
 const SearchInput = () => {
+  const theme = useTheme();
+
   return (
     <ThemeGrid
       styles={{
         padding: "3% 0px",
-        backgroundColor: "#fcf5e6",
+        backgroundColor: theme.background.box,
       }}
     >
       <DefaultGridItem

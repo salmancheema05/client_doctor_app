@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { DefaultBox } from "../../../components/boxes";
 import { ThemeGrid } from "../../../components/grids";
 import DefaultGridItem from "../../../components/gridItems";
 import { CardWithReversibleImage } from "../../../components/cards";
@@ -49,22 +48,22 @@ const BestNation = () => {
                 justifyContent: isMobile ? "" : "center",
               },
               div1: {},
-              div2: { padding: isMobile?"0px 0px":"0px 100px" },
+              div2: { padding: isMobile ? "0px 0px" : "0px 100px" },
             },
             heading: { fontSize: isMobile ? "25px" : "45px", margin: "3% 0%" },
             paragraph: { lineHeight: "25px" },
           }}
         >
           <DefaultCardFooter
+            buttonKey="learn_more"
             styles={{
-              display: "flex",
-              flexDirction: "column",
-              alignItems: "flex-end",
+              div: {
+                display: "flex",
+                flexDirction: "column",
+                alignItems: "flex-end",
+              },
             }}
-            buttonKey="request_an_appointment"
-          >
-            Learn More
-          </DefaultCardFooter>
+          />
         </CardWithReversibleImage>
       </DefaultGridItem>
     </ThemeGrid>

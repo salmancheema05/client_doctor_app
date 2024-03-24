@@ -6,8 +6,9 @@ import { DefaultButton } from "../../components/buttons";
 import OverView from "./components/overView";
 import DefaultParagraph from "../../components/paragraphs";
 import Form from "./components/form";
-
+import { useTheme } from "@mui/material/styles";
 const DoctorAdmin = () => {
+  const theme = useTheme();
   const [overView, setOverView] = useState(true);
   const [appointment, setAppointment] = useState(false);
   const [profile, setProfile] = useState(false);
@@ -44,7 +45,7 @@ const DoctorAdmin = () => {
             md={12}
             lg={12}
             xl={12}
-            styles={{ backgroundColor: "#fff8e7" }}
+            styles={{ backgroundColor: theme.background.box }}
           >
             <DefaultParagraph styles={{ marginBottom: "2%" }}>
               To get approval please complate you profile.

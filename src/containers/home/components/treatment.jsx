@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { DefaultBox } from "../../../components/boxes";
 import DefaultGrid, { ThemeGrid } from "../../../components/grids";
 import DefaultGridItem from "../../../components/gridItems";
 import { CardWithReversibleImage } from "../../../components/cards";

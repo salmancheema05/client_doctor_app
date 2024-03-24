@@ -1,7 +1,11 @@
 import React from "react";
-const DefaultDiv = ({ children, styles, ...rest }) => {
+const DefaultDiv = ({ children, styles, handler = null, ...rest }) => {
   return (
-    <div style={{ ...styles }} {...rest}>
+    <div
+      style={{ cursor: handler ? "pointer" : " ", ...styles }}
+      onClick={handler}
+      {...rest}
+    >
       {children}
     </div>
   );

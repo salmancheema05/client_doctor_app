@@ -7,7 +7,11 @@ import { DefaultDynamicTagText } from "./dynamicTagTexts";
 import { useSelector } from "react-redux";
 import { LinkCircleImage } from "./links";
 import Doctor2 from "../images/doctorimage2.jpg";
+import { useTheme } from "@mui/material/styles";
+import Switch from "./switch";
+
 const NavBar = () => {
+  const theme = useTheme();
   const token = useSelector((state) => state.login.user?.token);
   const user_status = useSelector((state) => state.login.user?.user_status);
 
@@ -26,7 +30,7 @@ const NavBar = () => {
   return (
     <DefaultGrid
       styles={{
-        background: "linear-gradient(to right, #bee8ef 10%, #fcfbfa 50%)",
+        background: theme.background.color,
         height: "100px",
         marginTop: "0px",
       }}
@@ -94,7 +98,7 @@ const NavBar = () => {
             styles={{
               marginTop: "1%",
               display: "flex",
-              justifyContent: isMobile ? "left" : "center",
+              justifyContent: isMobile ? "left" : "space-around",
               marginLeft: isMobile ? "4%" : "center",
               marginBottom: isMobile ? "4%" : "",
             }}
@@ -108,7 +112,9 @@ const NavBar = () => {
             ) : (
               <LinkButtton buttonKey="login" to="/login" />
             )}
+            <Switch />
           </DefaultGridItem>
+
           {/*login Button box end  */}
         </DefaultGrid>
       </DefaultGridItem>

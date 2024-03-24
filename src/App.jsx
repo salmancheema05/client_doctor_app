@@ -15,11 +15,16 @@ import {
   IsDoctor,
   Unauthorised,
 } from "./ulitity/isAuthenticated.jsx";
+import { useTheme } from "@mui/material/styles";
+
 const App = () => {
+  const theme = useTheme();
   const token = useSelector((state) => state.login.user?.token);
   const userStatus = useSelector((state) => state.login.user?.user_status);
 
-  console.log("app", userStatus);
+  useEffect(() => {
+    document.body.style.backgroundColor = theme.background.bodyBackgroundColor;
+  }, []);
   return (
     <>
       <Router>

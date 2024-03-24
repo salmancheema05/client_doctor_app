@@ -2,46 +2,53 @@ import React from "react";
 import { DefaultSpan } from "./spans";
 import { DefaultIcon } from "./icons";
 
-const CountBadge = ({ count }) => {
+const CountBadge = ({ count, styles, handler = null, ...rest }) => {
   return (
-    <span
-      style={{
+    <DefaultSpan
+      styles={{
         display: "inline-block",
         padding: "5px 10px",
         backgroundColor: "blue",
         color: "#fff",
+        ...styles,
       }}
+      handler={handler}
+      {...rest}
     >
       {count}
-    </span>
+    </DefaultSpan>
   );
 };
 
-const SquareBadge = ({ title, styles }) => {
+const SquareBadge = ({ title, styles, handler = null, ...rest }) => {
   return (
     <DefaultSpan
-      style={{
+      styles={{
         backgroundColor: "#badbdf",
         display: "inline-block",
         padding: "10px 30px",
         color: "#2d919c",
         ...styles,
       }}
+      handler={handler}
+      {...rest}
     >
       {title}
     </DefaultSpan>
   );
 };
 
-const RatingAndReviewsCountBadge = ({ title, styles }) => {
+const RatingAndReviewsCountBadge = ({ styles, handler = null, ...rest }) => {
   return (
     <DefaultSpan
-      style={{
+      styles={{
         display: "inline-block",
         padding: "5px 10px",
         color: "white",
         ...styles,
       }}
+      handler={handler}
+      {...rest}
     >
       <DefaultIcon />
     </DefaultSpan>

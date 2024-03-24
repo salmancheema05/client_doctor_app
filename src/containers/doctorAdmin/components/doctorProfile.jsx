@@ -3,12 +3,13 @@ import React from "react";
 import { DefaultButton } from "../../../components/buttons";
 import { DefaultDynamicTagText } from "../../../components/dynamicTagTexts";
 import { DefaultLi } from "../../../components/links";
-
+import { useTheme } from "@mui/material/styles";
 const DoctorProfile = ({
   overview = { state: null, setState: null },
   appointment = { state: null, setState: null },
   profile = { state: null, setState: null },
 }) => {
+  const theme = useTheme();
   const overViewFunction = () => {
     overview.setState(true);
     appointment.setState(false);
@@ -43,7 +44,7 @@ const DoctorProfile = ({
           margin: "10px 20px",
           padding: "15px 0px",
           borderRadius: "10px",
-          color: overview.state ? "rgb(45, 145, 156)" : "",
+          color: overview.state ? "rgb(45, 145, 156)" : theme.paragraph.main,
           cursor: "pointer",
         }}
       >
@@ -58,7 +59,7 @@ const DoctorProfile = ({
           margin: "10px 20px",
           padding: "15px 0px",
           borderRadius: "10px",
-          color: appointment.state ? "rgb(45, 145, 156)" : "",
+          color: appointment.state ? "rgb(45, 145, 156)" : theme.paragraph.main,
           cursor: "pointer",
         }}
       >
@@ -73,7 +74,7 @@ const DoctorProfile = ({
           margin: "10px 20px",
           padding: "15px 0px",
           borderRadius: "10px",
-          color: profile.state ? "rgb(45, 145, 156)" : "",
+          color: profile.state ? "rgb(45, 145, 156)" : theme.paragraph.main,
           cursor: "pointer",
         }}
       >

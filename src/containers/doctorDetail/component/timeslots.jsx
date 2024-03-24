@@ -106,16 +106,13 @@ const TimeSlots = () => {
           </DefaultParagraph>
         </DefaultDiv>
         <DefaultButton
-          buttonKey="request_an_appointment"
+          buttonKey="book_appointment"
           styles={{
             width: "100%",
             marginTop: "50px",
             marginBottom: "20px",
-            borderRadius: "10px",
           }}
-        >
-          Book Appointment
-        </DefaultButton>
+        />
       </DefaultDiv>
     </DefaultDiv>
   );

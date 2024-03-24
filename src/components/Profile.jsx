@@ -4,9 +4,10 @@ import DefaultHeading from "./headings";
 import DefaultParagraph from "./paragraphs";
 import DefaultImage from "./images";
 import { SquareBadge } from "./badges";
-import { DefaultIcon, CircleIcon } from "./icons";
+import { DefaultIcon } from "./icons";
 
 const ProfileCard = ({
+  component,
   shouldFlip = false,
   headingTag = "h1",
   imageSrc,
@@ -70,7 +71,9 @@ const ProfileCard = ({
           </DefaultHeading>
           {profileicon ? (
             <DefaultIcon handler={iconHandler} icon={profileicon} />
-          ) : null}
+          ) : (
+            component
+          )}
 
           <DefaultParagraph
             handler={handlers.paragraph}

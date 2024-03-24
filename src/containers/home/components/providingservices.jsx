@@ -1,5 +1,4 @@
 import React from "react";
-import { DefaultBox } from "../../../components/boxes";
 import { ThemeGrid } from "../../../components/grids";
 import DefaultGridItem from "../../../components/gridItems";
 import map from "../../../images/map.png";

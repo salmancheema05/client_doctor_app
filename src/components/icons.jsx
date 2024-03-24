@@ -3,13 +3,14 @@ import { IconButton } from "@mui/material";
 import Icon from "@mui/material/Icon";
 import DefaultParagraph from "./paragraphs";
 
-const DefaultIcon = ({ handler, icon, styles }) => {
+const DefaultIcon = ({ handler = null, icon, styles }) => {
   return (
     <Icon
+      onClick={handler}
       style={{
+        cursor: handler ? "pointer" : " ",
         ...styles,
       }}
-      onClick={handler}
     >
       {icon}
     </Icon>
@@ -18,6 +19,7 @@ const DefaultIcon = ({ handler, icon, styles }) => {
 const CircleIcon = ({ handler, icon, styles }) => {
   return (
     <IconButton
+      onClick={handler}
       style={{
         height: "30px",
         width: "30px",
@@ -26,7 +28,6 @@ const CircleIcon = ({ handler, icon, styles }) => {
         color: "gray",
         ...styles,
       }}
-      onClick={handler}
     >
       {icon}
     </IconButton>

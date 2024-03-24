@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useFormContext } from "react-hook-form";
+import { useTheme } from "@mui/material/styles";
 const DefaultInput = ({ name, label, styles, ...rest }) => {
+  const theme = useTheme();
   const {
     register,
     formState: { errors },
@@ -8,7 +10,9 @@ const DefaultInput = ({ name, label, styles, ...rest }) => {
 
   return (
     <>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} style={{ color: theme.paragraph.main }}>
+        {label}
+      </label>
       <input
         {...register(name)}
         {...rest}
@@ -24,16 +28,18 @@ const DefaultInput = ({ name, label, styles, ...rest }) => {
           borderBottomColor: "lightgray",
           marginTop: "1%",
           marginBottom: "2%",
+          color: theme.input.main,
           ...styles,
         }}
       />
       {errors[name] && (
-        <span style={{ color: "red" }}>{errors[name].message}</span>
+        <span style={{ color: theme.input.error }}>{errors[name].message}</span>
       )}
     </>
   );
 };
 const DefaultTextArea = ({ name, label, children, styles, ...rest }) => {
+  const theme = useTheme();
   const {
     register,
     formState: { errors },
@@ -41,7 +47,9 @@ const DefaultTextArea = ({ name, label, children, styles, ...rest }) => {
 
   return (
     <>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} style={{ color: theme.paragraph.main }}>
+        {label}
+      </label>
       <textarea
         {...register(name)}
         rows="10"
@@ -56,18 +64,20 @@ const DefaultTextArea = ({ name, label, children, styles, ...rest }) => {
           borderBottomColor: "lightgray",
           marginTop: "1%",
           marginBottom: "2%",
+          color: theme.input.main,
           ...styles,
         }}
       >
         {children}
       </textarea>
       {errors[name] && (
-        <span style={{ color: "red" }}>{errors[name].message}</span>
+        <span style={{ color: theme.input.error }}>{errors[name].message}</span>
       )}
     </>
   );
 };
 const DynamicInput = ({ name, index, label, fieldName, styles, ...rest }) => {
+  const theme = useTheme();
   const {
     register,
     formState: { errors },
@@ -75,7 +85,9 @@ const DynamicInput = ({ name, index, label, fieldName, styles, ...rest }) => {
   const fieldNameWithIndex = `${name}[${index}].${fieldName}`;
   return (
     <>
-      <lable htmlFor={fieldName}>{label}</lable>
+      <lable htmlFor={fieldName} style={{ color: theme.paragraph.main }}>
+        {label}
+      </lable>
       <input
         {...register(fieldNameWithIndex)}
         {...rest}
@@ -91,13 +103,14 @@ const DynamicInput = ({ name, index, label, fieldName, styles, ...rest }) => {
           borderBottomColor: "lightgray",
           marginTop: "2%",
           marginBottom: "2%",
+          color: theme.input.main,
           ...styles,
         }}
       />
       {errors[name] &&
         errors[name][index] &&
         errors[name][index][fieldName] && (
-          <span style={{ color: "red" }}>
+          <span style={{ color: theme.input.error }}>
             {errors[name][index][fieldName].message}
           </span>
         )}
@@ -106,6 +119,7 @@ const DynamicInput = ({ name, index, label, fieldName, styles, ...rest }) => {
 };
 
 const DefaultSelectInput = ({ name, label, options, styles, ...rest }) => {
+  const theme = useTheme();
   const {
     register,
     formState: { errors },
@@ -113,26 +127,39 @@ const DefaultSelectInput = ({ name, label, options, styles, ...rest }) => {
 
   return (
     <div>
-      {label && <label htmlFor={name}>{label}:</label>}
+      {label && (
+        <label htmlFor={name} style={{ color: theme.paragraph.main }}>
+          {label}:
+        </label>
+      )}
       <select
         {...register(name)}
         {...rest}
         style={{
           border: "none",
           outline: "none",
+          backgroundColor: "transparent",
           ...styles,
         }}
       >
-        <option value="">Select</option>
+        <option value="" style={{ backgroundColor: "transparent" }}>
+          Select
+        </option>
         {options.map((option) => (
-          <option key={option.value} value={option.value}>
+          <option
+            key={option.value}
+            value={option.value}
+            style={{ backgroundColor: "transparent" }}
+          >
             {option.label}
           </option>
         ))}
       </select>
       <div style={{ marginTop: "5%" }}>
         {errors[name] && (
-          <span style={{ color: "red" }}>{errors[name].message}</span>
+          <span style={{ color: theme.input.error }}>
+            {errors[name].message}
+          </span>
         )}
       </div>
     </div>
@@ -148,6 +175,7 @@ const DynmaicSelectInput = ({
   styles,
   ...rest
 }) => {
+  const theme = useTheme();
   const {
     register,
     formState: { errors },
@@ -158,7 +186,11 @@ const DynmaicSelectInput = ({
 
   return (
     <div>
-      {label && <label htmlFor={dynamicName}>{label}:</label>}
+      {label && (
+        <label htmlFor={dynamicName} style={{ color: theme.paragraph.main }}>
+          {label}:
+        </label>
+      )}
       <select
         {...register(dynamicName)} // Register with the dynamic name
         {...rest}
@@ -179,7 +211,7 @@ const DynmaicSelectInput = ({
         {errors[name] &&
           errors[name][index] &&
           errors[name][index][fieldName] && (
-            <span style={{ color: "red" }}>
+            <span style={{ color: theme.input.error }}>
               {errors[name][index][fieldName].message}
             </span>
           )}

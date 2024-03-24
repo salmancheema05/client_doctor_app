@@ -9,8 +9,9 @@ import { DefaultCardFooter } from "../../../components/cardFooter";
 import { DefaultDiv } from "../../../components/divs";
 import DefaultImage from "../../../components/images";
 import { DefaultCard } from "../../../components/cards";
-
+import { useTheme } from "@mui/material/styles";
 const Header = () => {
+  const theme = useTheme();
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [isMediumScreen, setIsMediumScreen] = useState(false);
   useEffect(() => {
@@ -40,7 +41,7 @@ const Header = () => {
   return (
     <DefaultDiv
       styles={{
-        background: "linear-gradient(to right, #bee8ef 10%, #fcfbfa 50%)",
+        background: theme.background.color,
         padding: "5% 5%",
       }}
     >

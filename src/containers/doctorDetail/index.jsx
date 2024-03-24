@@ -8,7 +8,7 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import TimeSlots from "./component/timeslots";
 import { DefaultSpan } from "../../components/spans";
 import About from "./component/about";
-
+import { RatingWithViewsCount } from "../../components/icons";
 const Index = () => {
   return (
     <DefaultDiv styles={{ margin: "8%" }}>
@@ -22,7 +22,12 @@ const Index = () => {
             headingText="Dr Salman Akbar"
             title="Surgeon"
             paragraphText="I am a Doctor"
-            profileicon={<StarRateIcon />}
+            component={
+              <RatingWithViewsCount
+                icon={<StarRateIcon />}
+                viewscount="4.5 (2)"
+              />
+            }
             styles={{
               flipDivs: {
                 container: {},

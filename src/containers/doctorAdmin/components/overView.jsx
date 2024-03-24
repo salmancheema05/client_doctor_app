@@ -5,12 +5,10 @@ import Doctorimage2 from "../../../images/doctorimage2.jpg";
 import DefaultParagraph from "../../../components/paragraphs";
 import { ProfileCard } from "../../../components/Profile";
 import { RatingWithViewsCount } from "../../../components/icons";
-import DefaultHeading, {
-  HeadingWithThreeParts,
-} from "../../../components/headings";
+import DefaultHeading from "../../../components/headings";
 import DefaultEduction from "../../../components/eductions";
 import { DefaultExperienceTemplate } from "../../../components/experienceTemplates";
-
+import { DynamicTagTextWithThreeParts } from "../../../components/dynamicTagTexts";
 const OverView = () => {
   return (
     <>
@@ -49,7 +47,7 @@ const OverView = () => {
       </DefaultGridItem>
 
       <DefaultGridItem xs={12} sm={12} md={12} lg={12} xl={12}>
-        <HeadingWithThreeParts
+        <DynamicTagTextWithThreeParts
           tag="h2"
           part1="About of"
           part2="Salman Akbar"

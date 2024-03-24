@@ -1,10 +1,12 @@
 import React from "react";
 import DefaultGrid, { ThemeGrid } from "../../components/grids";
 import DefaultGridItem from "../../components/gridItems";
-import { HeadingWithThreeParts } from "../../components/headings";
 import DefaultParagraph from "../../components/paragraphs";
+import { DynamicTagTextWithThreeParts } from "../../components/dynamicTagTexts";
 import Form from "./components/form";
+import { useTheme } from "@mui/material/styles";
 const Login = () => {
+  const theme = useTheme();
   return (
     <ThemeGrid>
       <DefaultGridItem
@@ -23,12 +25,12 @@ const Login = () => {
       >
         <DefaultGrid>
           <DefaultGridItem xs={12} sm={12} md={12} lg={12} xl={12}>
-            <HeadingWithThreeParts
+            <DynamicTagTextWithThreeParts
               part1="Hello!"
               part2="Welcome"
               part3="Back"
               styles={{
-                part2: { color: "blue" },
+                part2: { color: theme.heighLight.heighLightColor },
               }}
             />
           </DefaultGridItem>

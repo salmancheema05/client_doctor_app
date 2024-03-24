@@ -8,6 +8,7 @@ const DefaultImage = ({ handler = null, styles, ...rest }) => {
         borderRadius: "10px",
         ...styles,
       }}
+      onClick={handler}
       {...rest}
     />
   );
@@ -23,5 +24,13 @@ export const CircleImage = ({ handler = null, styles, ...rest }) => {
     cursor: handler ? "pointer" : "",
     ...styles,
   };
-  return <img {...rest} width="100%" height="100%" style={CircleImageStyle} />;
+  return (
+    <img
+      width="100%"
+      height="100%"
+      onClick={handler}
+      {...rest}
+      style={CircleImageStyle}
+    />
+  );
 };

@@ -1,18 +1,19 @@
 import React from "react";
 import { DynamicTagTextWithTwoParts } from "../../../components/dynamicTagTexts";
 import { DefaultCard } from "../../../components/cards";
-
+import { useTheme } from "@mui/material/styles";
 const About = () => {
+  const theme = useTheme();
   return (
     <>
       <DynamicTagTextWithTwoParts
         tag="h2"
         part1="About of "
-        part2="Dr.Salman Akbar"
+        part2="Dr . Salman Akbar"
         styles={{
           tag: {},
-          part1: {},
-          part2: { color: "blue" },
+          part1: { wordSpacing: "5px" },
+          part2: { color: theme.highLight.highLightColor },
         }}
       />
       <DefaultCard

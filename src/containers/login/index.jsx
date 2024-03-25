@@ -30,7 +30,7 @@ const Login = () => {
               part2="Welcome"
               part3="Back"
               styles={{
-                part2: { color: theme.heighLight.heighLightColor },
+                part2: { color: theme.highLightColor.highLightColor },
               }}
             />
           </DefaultGridItem>

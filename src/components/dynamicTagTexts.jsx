@@ -39,14 +39,14 @@ const DynamicTagTextWithTwoParts = ({
     >
       <DefaultSpan
         handler={handler.part1}
-        styles={{ color: theme.heighLight.main, ...styles.part1 }}
+        styles={{ color: theme.highLight.main, ...styles.part1 }}
       >
         {part1 + " "}
       </DefaultSpan>
 
       <DefaultSpan
         handle={handler.part2}
-        styles={{ color: theme.heighLight.main, ...styles.part2 }}
+        styles={{ color: theme.highLight.main, ...styles.part2 }}
       >
         {part2 + " "}
       </DefaultSpan>

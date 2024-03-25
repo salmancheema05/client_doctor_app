@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-
+import { useDispatch, useSelector } from "react-redux";
+import { darkModeReducer } from "../store/features/darkMode";
 const Switch = () => {
-  const [isOn, setIsOn] = useState(false);
-
+  const [darkMode, setDarkMode] = useState(false);
+  const dispatch = useDispatch();
   const toggleSwitch = () => {
-    setIsOn((prevState) => !prevState);
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    dispatch(darkModeReducer(newDarkMode));
   };
 
   return (
@@ -19,7 +22,7 @@ const Switch = () => {
       >
         <input
           type="checkbox"
-          checked={isOn}
+          checked={darkMode}
           onChange={toggleSwitch}
           style={{ opacity: 0, width: 0, height: 0 }}
         />
@@ -31,7 +34,7 @@ const Switch = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: isOn ? "#2196F3" : "#ccc",
+            backgroundColor: darkMode ? "#2196F3" : "#ccc",
             transition: "background-color .4s",
             borderRadius: "34px",
           }}
@@ -47,7 +50,7 @@ const Switch = () => {
             backgroundColor: "white",
             transition: "transform .4s",
             borderRadius: "50%",
-            transform: isOn ? "translateX(26px)" : "translateX(0)",
+            transform: darkMode ? "translateX(26px)" : "translateX(0)",
           }}
         ></span>
       </label>

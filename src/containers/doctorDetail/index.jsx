@@ -9,6 +9,7 @@ import TimeSlots from "./component/timeslots";
 import { DefaultSpan } from "../../components/spans";
 import About from "./component/about";
 import { RatingWithViewsCount } from "../../components/icons";
+import DefautTabs from "./component/tabs";
 const Index = () => {
   return (
     <DefaultDiv styles={{ margin: "8%" }}>
@@ -51,19 +52,7 @@ const Index = () => {
             }}
           />
           <DefaultGrid styles={{ marginTop: "8%" }}>
-            <DefaultGridItem
-              xs={12}
-              sm={12}
-              md={12}
-              lg={12}
-              styles={{ borderBottom: "1px solid black " }}
-            >
-              <DefaultSpan styles={{ marginRight: "5%" }}>About</DefaultSpan>
-              <DefaultSpan>Feedback</DefaultSpan>
-            </DefaultGridItem>
-            <DefaultGridItem xs={12} sm={12} md={12} lg={12}>
-              <About />
-            </DefaultGridItem>
+            <DefautTabs />
           </DefaultGrid>
         </DefaultGridItem>
         <DefaultGridItem xs={12} sm={12} md={12} lg={4}>

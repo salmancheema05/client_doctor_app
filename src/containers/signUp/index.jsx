@@ -29,7 +29,7 @@ const SignUp = () => {
               part1="Create an"
               part2="Account"
               styles={{
-                part2: { color: theme.heighLight.heighLightColor },
+                part2: { color: theme.highLight.highLightColor },
               }}
             />
           </DefaultGridItem>

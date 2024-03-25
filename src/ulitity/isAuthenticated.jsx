@@ -10,6 +10,7 @@ const IsPatient = ({ children, token, authorized }) => {
     return <Navigate to="/login" />;
   }
 };
+
 const IsDoctor = ({ children, token, authorized }) => {
   if (authorized === "doctor") {
     return children;
@@ -17,7 +18,8 @@ const IsDoctor = ({ children, token, authorized }) => {
     return <Navigate to="/login" />;
   }
 };
-const Unauthorised = ({ children, token, authorized }) => {
+
+const UnAuthorised = ({ children, token, authorized }) => {
   if (token && authorized === "doctor") {
     return <Navigate to="/doctoradmin" />;
   } else if (token && authorized === "patient") {
@@ -26,4 +28,4 @@ const Unauthorised = ({ children, token, authorized }) => {
     return children;
   }
 };
-export { IsPatient, IsDoctor, Unauthorised };
+export { IsPatient, IsDoctor, UnAuthorised };

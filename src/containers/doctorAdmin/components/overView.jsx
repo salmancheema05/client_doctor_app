@@ -4,11 +4,11 @@ import DefaultGridItem from "../../../components/gridItems";
 import Doctorimage2 from "../../../images/doctorimage2.jpg";
 import DefaultParagraph from "../../../components/paragraphs";
 import { ProfileCard } from "../../../components/Profile";
-import { RatingWithViewsCount } from "../../../components/icons";
 import DefaultHeading from "../../../components/headings";
 import DefaultEduction from "../../../components/eductions";
 import { DefaultExperienceTemplate } from "../../../components/experienceTemplates";
 import { DynamicTagTextWithThreeParts } from "../../../components/dynamicTagTexts";
+import { RatingWithViews } from "../../../components/cardFooter";
 const OverView = () => {
   return (
     <>
@@ -21,7 +21,12 @@ const OverView = () => {
           headingText="Dr Salman Akbar"
           title="Surgeon"
           paragraphText="I am a Doctor"
-          profileicon={<RatingWithViewsCount viewscount="(3)" />}
+          component={
+            <RatingWithViews
+              textRatingAndViewsCount="4.5 (10)"
+              starlength={1}
+            />
+          }
           styles={{
             flipDivs: {
               container: {},

@@ -44,10 +44,9 @@ const GreatDoctor = () => {
           styles={{ heading: { margin: "20px 0px" } }}
         >
           <RatingWithViewsCountAndSquareBadgeFooter
-            icon={<StarRateIcon />}
-            viewscount="4.5 (2)"
-            title="Doctor"
-            iconcolor="yellow"
+            yourPost="doctor"
+            textRatingAndViewsCount="4.5 (3)"
+            starlength={1}
           />
           <CircleIconAndTextFooter
             shouldFlip={true}
@@ -74,10 +73,9 @@ const GreatDoctor = () => {
           styles={{ heading: { margin: "20px 0px" } }}
         >
           <RatingWithViewsCountAndSquareBadgeFooter
-            icon={<StarRateIcon />}
-            viewscount="4.5 (2)"
-            title="Doctor"
-            iconcolor="yellow"
+            yourPost="doctor"
+            textRatingAndViewsCount="4.5 (3)"
+            starlength={1}
           />
           <CircleIconAndTextFooter
             shouldFlip={true}
@@ -87,7 +85,6 @@ const GreatDoctor = () => {
           />
         </CardWithImage>
       </DefaultGridItem>
-
       <DefaultGridItem
         xs={12}
         sm={6}
@@ -105,10 +102,9 @@ const GreatDoctor = () => {
           styles={{ heading: { margin: "20px 0px" } }}
         >
           <RatingWithViewsCountAndSquareBadgeFooter
-            icon={<StarRateIcon />}
-            viewscount="4.5 (2)"
-            title="Doctor"
-            iconcolor="yellow"
+            yourPost="doctor"
+            textRatingAndViewsCount="4.5 (3)"
+            starlength={1}
           />
           <CircleIconAndTextFooter
             shouldFlip={true}

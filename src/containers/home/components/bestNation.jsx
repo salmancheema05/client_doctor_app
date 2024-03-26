@@ -47,10 +47,12 @@ const BestNation = () => {
                 display: isMobile ? "" : "flex",
                 justifyContent: isMobile ? "" : "center",
               },
-              div1: {},
               div2: { padding: isMobile ? "0px 0px" : "0px 100px" },
             },
-            heading: { fontSize: isMobile ? "25px" : "45px", margin: "3% 0%" },
+            heading: {
+              fontSize: isMobile ? "25px" : "50px",
+              margin: "3% 0%",
+            },
             paragraph: { lineHeight: "25px" },
           }}
         >

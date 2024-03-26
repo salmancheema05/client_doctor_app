@@ -77,7 +77,7 @@ const DynamicTagTextWithThreeParts = ({
       <DefaultSpan
         styles={{
           cursor: handler.part2 ? "pointer" : "",
-          color: theme.heighLight.main,
+          color: theme.highLight.main,
           ...styles.part1,
         }}
         handler={handler.part1}
@@ -88,7 +88,7 @@ const DynamicTagTextWithThreeParts = ({
       <DefaultSpan
         styles={{
           cursor: handler.part2 ? "pointer" : "",
-          color: theme.heighLight.main,
+          color: theme.highLight.main,
           ...styles.part2,
         }}
         onClick={handler.part2}
@@ -97,7 +97,7 @@ const DynamicTagTextWithThreeParts = ({
       </DefaultSpan>
 
       <DefaultSpan
-        styles={{ color: theme.heighLight.main, ...styles.part3 }}
+        styles={{ color: theme.highLight.main, ...styles.part3 }}
         handler={handler.part3}
       >
         {part3}

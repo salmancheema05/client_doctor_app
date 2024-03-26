@@ -7,6 +7,7 @@ import MedicalServices from "./components/medicalservices";
 import Treatment from "./components/treatment";
 import GreatDoctor from "./components/greatDoctor";
 import PatientSay from "../../components/patientSay";
+import Faq from "./components/faq";
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -28,6 +29,7 @@ const Home = () => {
       <MedicalServices />
       <Treatment />
       <GreatDoctor />
+      <Faq />
       {isMobile ? null : <PatientSay />}
     </DefaultDiv>
   );

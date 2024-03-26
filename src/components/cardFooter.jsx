@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { DefaultButton } from "./buttons";
 import { DefaultDiv, FlipDivs } from "./divs";
 import { CircleIcon, RatingWithViewsCount } from "./icons";
 import { CountBadge, SquareBadge } from "./badges";
 import DefaultParagraph from "./paragraphs";
-
+import { ReadRating } from "./rating";
+import { stringConvertInterger } from "../ulitity/functions";
 const DefaultCardFooter = ({
   buttonKey = "default",
   handlers = { div: null, button: null },
@@ -50,30 +51,40 @@ const IconAndViewFooter = ({ styles, icon, count, handler }) => {
     </DefaultDiv>
   );
 };
+const RatingWithViews = ({ textRatingAndViewsCount, starlength }) => {
+  let selectedStar = stringConvertInterger(textRatingAndViewsCount, starlength);
+  return (
+    <div style={{ display: "flex", marginTop: "10px " }}>
+      <ReadRating length={starlength} selectedStar={selectedStar} />
+      <DefaultParagraph styles={{ paddingTop: "4px" }}>
+        {textRatingAndViewsCount}
+      </DefaultParagraph>
+    </div>
+  );
+};
 
 const RatingWithViewsCountAndSquareBadgeFooter = ({
-  styles,
-  icon,
-  title,
-  handler,
+  yourPost,
   shouldFlip,
-  viewscount,
-  iconcolor,
+  textRatingAndViewsCount,
+  starlength,
 }) => {
+  let selectedStar = stringConvertInterger(textRatingAndViewsCount, starlength);
+
   return (
     <FlipDivs
       shouldFlip={shouldFlip}
       styles={{
         container: { display: "flex", justifyContent: "space-between" },
       }}
-      content1={<SquareBadge title={title} />}
+      content1={<SquareBadge title={yourPost} />}
       content2={
-        <RatingWithViewsCount
-          icon={icon}
-          viewscount={viewscount}
-          handler={handler}
-          iconcolor={iconcolor}
-        />
+        <div style={{ display: "flex", marginTop: "10px " }}>
+          <ReadRating length={starlength} selectedStar={selectedStar} />
+          <DefaultParagraph styles={{ paddingTop: "4px" }}>
+            {textRatingAndViewsCount}
+          </DefaultParagraph>
+        </div>
       }
     />
   );
@@ -106,6 +117,7 @@ export {
   DefaultCardFooter,
   IconAndViewFooter,
   CircleIconCardFooter,
-  RatingWithViewsCountAndSquareBadgeFooter,
   CircleIconAndTextFooter,
+  RatingWithViewsCountAndSquareBadgeFooter,
+  RatingWithViews,
 };

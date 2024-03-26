@@ -4,6 +4,8 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import About from "./about";
 import { useTheme } from "@mui/material/styles";
+import Feedback from "./feedback";
+
 function CustomTabPanel({ children, value, index, ...other }) {
   return (
     <div
@@ -61,7 +63,7 @@ export default function DefaultTabs() {
         <About />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        Item Two
+        <Feedback />
       </CustomTabPanel>
     </Box>
   );

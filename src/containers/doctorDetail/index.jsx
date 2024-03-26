@@ -8,7 +8,7 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import TimeSlots from "./component/timeslots";
 import { DefaultSpan } from "../../components/spans";
 import About from "./component/about";
-import { RatingWithViewsCount } from "../../components/icons";
+import { RatingWithViews } from "../../components/cardFooter";
 import DefautTabs from "./component/tabs";
 const Index = () => {
   return (
@@ -24,9 +24,9 @@ const Index = () => {
             title="Surgeon"
             paragraphText="I am a Doctor"
             component={
-              <RatingWithViewsCount
-                icon={<StarRateIcon />}
-                viewscount="4.5 (2)"
+              <RatingWithViews
+                textRatingAndViewsCount="4.5 (3)"
+                starlength={1}
               />
             }
             styles={{

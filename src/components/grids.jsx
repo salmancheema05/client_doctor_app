@@ -21,8 +21,8 @@ const DefaultGrid = ({
   );
 };
 export const ThemeGrid = ({
-  spacing = 2,
-  rowSpacing = 2,
+  spacing = 0,
+  rowSpacing = 0,
   children,
   styles,
   ...rest

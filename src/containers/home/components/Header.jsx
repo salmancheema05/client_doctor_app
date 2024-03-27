@@ -1,34 +1,43 @@
 import React, { useState, useEffect } from "react";
-import DefaultGrid from "../../../components/grids";
+import DefaultGrid, { ThemeGrid } from "../../../components/grids";
 import DefaultGridItem from "../../../components/gridItems";
 import { HEADING, PARAGRAPH } from "../constants";
-import doctorimage1 from "../../../images/doctorimage1.jpg";
-import doctorimage2 from "../../../images/doctorimage2.jpg";
-import doctorimage3 from "../../../images/doctorimage3.jpg";
+import image1 from "../../../images/doctorimage1.jpg";
+import image2 from "../../../images/doctorimage2.jpg";
+import image3 from "../../../images/doctorimage3.jpg";
 import { DefaultCardFooter } from "../../../components/cardFooter";
 import { DefaultDiv } from "../../../components/divs";
 import DefaultImage from "../../../components/images";
 import { DefaultCard } from "../../../components/cards";
 import { useTheme } from "@mui/material/styles";
+
 const Header = () => {
   const theme = useTheme();
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isExtraSmallScreen, setIsExtraSmallScreen] = useState(false);
   const [isMediumScreen, setIsMediumScreen] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      if (width < 900) {
+      if (width >= 600 && width < 900) {
         // handle small screen
         setIsSmallScreen(true);
         setIsMediumScreen(false);
-      } else if (width < 1200) {
+      } else if (width >= 900 && width < 1200) {
         // handle medium screen
         setIsSmallScreen(false);
         setIsMediumScreen(true);
+      } else if (width < 600) {
+        // handle medium screen
+        console.log("extra");
+        setIsSmallScreen(false);
+        setIsMediumScreen(false);
+        setIsExtraSmallScreen(true);
       } else {
         // handle large screen
         setIsSmallScreen(false);
         setIsMediumScreen(false);
+        setIsExtraSmallScreen(false);
       }
     };
 
@@ -42,84 +51,98 @@ const Header = () => {
     <DefaultDiv
       styles={{
         background: theme.background.color,
-        padding: "5% 5%",
+        // width: isSmallScreen ? "112.8%" : "",
       }}
     >
-      <DefaultGrid spacing={10}>
-        <DefaultGridItem sm={12} md={7} lg={6} xl={6}>
-          <DefaultGrid rowSpacing={5}>
-            <DefaultGridItem sm={12} md={12} lg={12} xl={12}>
+      <ThemeGrid>
+        <DefaultGridItem sm={12} md={8} lg={5} xl={5}>
+          <DefaultCard
+            headingText={HEADING}
+            paragraphText={PARAGRAPH}
+            styles={{ heading: { fontSize: "65px" } }}
+          >
+            <DefaultCardFooter
+              buttonKey="request_an_appointment"
+              styles={{ button: { marginTop: "30px" } }}
+            />
+          </DefaultCard>
+
+          <DefaultGrid
+            style={{
+              marginTop: "20px",
+              display: isExtraSmallScreen ? "none" : "",
+            }}
+          >
+            <DefaultGridItem sm={4} md={4} lg={4} xl={4}>
               <DefaultCard
-                headingText={HEADING}
-                paragraphText={PARAGRAPH}
-                styles={{ heading: { fontSize: "65px" } }}
-              >
-                <DefaultCardFooter buttonKey="request_an_appointment" />
-              </DefaultCard>
+                headingText={"30 +"}
+                paragraphText={"Years of Experience"}
+                tag="h1"
+                styles={{
+                  heading: { borderBottom: "5px solid orange", width: "50%" },
+                }}
+              />
             </DefaultGridItem>
-            <DefaultGridItem sm={12} md={12} lg={12} xl={12}>
-              <DefaultGrid>
-                <DefaultGridItem sm={4} md={4} lg={4} xl={4}>
-                  <DefaultCard
-                    headingText={"30 +"}
-                    paragraphText={"Years of Experience"}
-                    tag="h1"
-                  />
-                </DefaultGridItem>
-                <DefaultGridItem sm={4} md={4} lg={4}>
-                  <DefaultCard
-                    headingText={"15 +"}
-                    paragraphText={"Clinic Location"}
-                    tag="h1"
-                  />
-                </DefaultGridItem>
-                <DefaultGridItem sm={4} md={4} lg={4}>
-                  <DefaultCard
-                    headingText={"100 %"}
-                    paragraphText={"Patient Satisfaction"}
-                    tag="h1"
-                  />
-                </DefaultGridItem>
-              </DefaultGrid>
+            <DefaultGridItem sm={4} md={4} lg={4}>
+              <DefaultCard
+                headingText={"15 +"}
+                paragraphText={"Clinic Location"}
+                tag="h1"
+                styles={{
+                  heading: { borderBottom: "5px solid orange", width: "50%" },
+                }}
+              />
+            </DefaultGridItem>
+            <DefaultGridItem sm={4} md={4} lg={4}>
+              <DefaultCard
+                headingText={"100 %"}
+                paragraphText={"Patient Satisfaction"}
+                tag="h1"
+                styles={{
+                  heading: { borderBottom: "5px solid orange", width: "70%" },
+                }}
+              />
             </DefaultGridItem>
           </DefaultGrid>
         </DefaultGridItem>
+
         <DefaultGridItem
-          sm={0}
-          md={5}
-          lg={6}
+          sm={12}
+          md={4}
+          lg={7}
+          xl={7}
           styles={{
-            display: isSmallScreen ? "none" : "",
+            display:
+              isMediumScreen || isSmallScreen || isExtraSmallScreen
+                ? "none"
+                : "",
           }}
         >
           <DefaultGrid>
-            <DefaultGridItem xs={6} sm={6} md={12} lg={7}>
-              <DefaultImage src={doctorimage1} width="100%" height="450" />
+            <DefaultGridItem sm={12} md={12} lg={7} xl={6}>
+              <DefaultImage src={image1} width="100%" height="430" />
             </DefaultGridItem>
             <DefaultGridItem
-              xs={6}
-              sm={6}
-              md={0}
+              sm={12}
+              md={6}
               lg={5}
-              styles={{ display: isMediumScreen ? "none" : "" }}
+              xl={6}
+              styles={{
+                marginTop: "5%",
+                display: isMediumScreen ? "none" : "",
+              }}
             >
-              <DefaultGrid>
-                <DefaultGridItem xs={6} sm={6} md={12} lg={12}>
-                  <DefaultImage
-                    src={doctorimage2}
-                    width="100%"
-                    height="230"
-                    styles={{ marginTop: "40px" }}
-                  />
-                </DefaultGridItem>
-                <DefaultGridItem xs={6} sm={6} md={12} lg={12}>
-                  <DefaultImage src={doctorimage3} width="100%" height="230" />
-                </DefaultGridItem>
-              </DefaultGrid>
+              <DefaultImage
+                src={image2}
+                width="250"
+                height="230"
+                styles={{ marginBottom: "30px" }}
+              />
+              <DefaultImage src={image3} width="250" height="230" />
             </DefaultGridItem>
           </DefaultGrid>
         </DefaultGridItem>
-      </DefaultGrid>
+      </ThemeGrid>
     </DefaultDiv>
   );
 };

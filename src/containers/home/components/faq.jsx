@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ThemeGrid } from "../../../components/grids";
 import DefaultGridItem from "../../../components/gridItems";
 import { CardWithReversibleImage } from "../../../components/cards";
 import doctor1 from "../../../images/doctorimage1.jpg";
 import DeafaultAccordion from "./accordion";
 const Faq = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1200);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <ThemeGrid>
       <DefaultGridItem sm={12} md={12} lg={12} xl={12}>
@@ -17,13 +29,14 @@ const Faq = () => {
           styles={{
             flipDivs: {
               container: {
-                display: "flex",
+                display: isMobile ? "" : "flex",
                 justifyContent: "center",
               },
               div1: { paddingTop: "5%" },
-              div2: { padding: "0px 100px" },
+              div2: { padding: isMobile ? "0px 0px" : "0px 100px" },
             },
-            heading: { fontSize: "40px", margin: "3% 0%" },
+            heading: { fontSize: isMobile ? "30px" : "40px", margin: "3% 0%" },
+            image: { display: isMobile ? "none" : "" },
           }}
         >
           <DeafaultAccordion />

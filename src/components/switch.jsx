@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { darkModeReducer } from "../store/features/darkMode";
-const Switch = () => {
+const Switch = ({ styles }) => {
   const [darkMode, setDarkMode] = useState(false);
   const dispatch = useDispatch();
   const toggleSwitch = () => {
@@ -11,7 +11,7 @@ const Switch = () => {
   };
 
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ display: "flex", alignItems: "center", ...styles }}>
       <label
         style={{
           position: "relative",

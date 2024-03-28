@@ -8,44 +8,15 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import TimeSlots from "./component/timeslots";
 import { DefaultSpan } from "../../components/spans";
 import About from "./component/about";
-import { RatingWithViews } from "../../components/cardFooter";
+import {
+  RatingWithViews,
+  RatingWithViewsCountAndSquareBadgeFooter,
+} from "../../components/cardFooter";
 import DefautTabs from "./component/tabs";
 import { CardWithImage, DefaultCard } from "../../components/cards";
+import useResponsive from "../../hooks/useResponsive";
 const Index = () => {
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [isExtraSmallScreen, setIsExtraSmallScreen] = useState(false);
-  const [isMediumScreen, setIsMediumScreen] = useState(false);
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width >= 600 && width < 900) {
-        // handle small screen
-        setIsSmallScreen(true);
-        setIsMediumScreen(false);
-      } else if (width >= 900 && width < 1200) {
-        // handle medium screen
-        setIsSmallScreen(false);
-        setIsMediumScreen(true);
-      } else if (width < 600) {
-        // handle medium screen
-        console.log("extra");
-        setIsSmallScreen(false);
-        setIsMediumScreen(false);
-        setIsExtraSmallScreen(true);
-      } else {
-        // handle large screen
-        setIsSmallScreen(false);
-        setIsMediumScreen(false);
-        setIsExtraSmallScreen(false);
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const { isSmallScreen, isMediumScreen, isExtraSmallScreen } = useResponsive();
   return (
     <DefaultDiv styles={{ margin: "8%" }}>
       <DefaultGrid>
@@ -60,7 +31,8 @@ const Index = () => {
                 headingText="Dr Salman Akbar"
                 styles={{ heading: { margin: "20px 0px" } }}
               >
-                <RatingWithViews
+                <RatingWithViewsCountAndSquareBadgeFooter
+                  yourPost="doctor"
                   textRatingAndViewsCount="4.5 (3)"
                   starlength={1}
                 />

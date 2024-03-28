@@ -10,47 +10,15 @@ import { DefaultDiv } from "../../../components/divs";
 import DefaultImage from "../../../components/images";
 import { DefaultCard } from "../../../components/cards";
 import { useTheme } from "@mui/material/styles";
-
+import useResponsive from "../../../hooks/useResponsive";
 const Header = () => {
   const theme = useTheme();
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [isExtraSmallScreen, setIsExtraSmallScreen] = useState(false);
-  const [isMediumScreen, setIsMediumScreen] = useState(false);
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width >= 600 && width < 900) {
-        // handle small screen
-        setIsSmallScreen(true);
-        setIsMediumScreen(false);
-      } else if (width >= 900 && width < 1200) {
-        // handle medium screen
-        setIsSmallScreen(false);
-        setIsMediumScreen(true);
-      } else if (width < 600) {
-        // handle medium screen
-        console.log("extra");
-        setIsSmallScreen(false);
-        setIsMediumScreen(false);
-        setIsExtraSmallScreen(true);
-      } else {
-        // handle large screen
-        setIsSmallScreen(false);
-        setIsMediumScreen(false);
-        setIsExtraSmallScreen(false);
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const { isSmallScreen, isMediumScreen, isExtraSmallScreen } = useResponsive();
   return (
     <DefaultDiv
       styles={{
         background: theme.background.color,
+        zIndex: "-1",
         // width: isSmallScreen ? "112.8%" : "",
       }}
     >

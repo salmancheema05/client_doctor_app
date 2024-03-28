@@ -9,11 +9,12 @@ const DefaultLinkImage = ({ src, to, styles }) => {
     </Link>
   );
 };
-const LinkCircleImage = ({ src, to, styles }) => {
+const LinkCircleImage = ({ src, to, styles, ...rest }) => {
   return (
     <Link to={to}>
       <img
         src={src}
+        {...rest}
         style={{
           width: "40px",
           height: "40px",
@@ -26,11 +27,11 @@ const LinkCircleImage = ({ src, to, styles }) => {
     </Link>
   );
 };
-const DefaultLi = ({ children, to, styles }) => {
+const DefaultLi = ({ children, to, styles, ...rest }) => {
   const theme = useTheme();
   return (
     <Link to={to} style={{ color: theme.menu.main, textDecoration: "none" }}>
-      <li style={{ marginTop: "5%", marginBottom: "10%", ...styles }}>
+      <li style={{ marginTop: "5%", marginBottom: "10%", ...styles }} {...rest}>
         {children}
       </li>
     </Link>

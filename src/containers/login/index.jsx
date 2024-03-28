@@ -30,7 +30,8 @@ const Login = () => {
               part2="Welcome"
               part3="Back"
               styles={{
-                part2: { color: theme.highLightColor.highLightColor },
+                part2: { color: theme.highLight.highLightColor },
+                tag: { marginTop: "30px" },
               }}
             />
           </DefaultGridItem>

@@ -2,10 +2,11 @@ import React from "react";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 
-const DefaultRating = ({ length = 5, selectedStar = 0 }) => {
+const DefaultRating = ({ length = 5, selectedStar = 0, handler = null }) => {
   return (
     <Stack spacing={1}>
       <Rating
+        onMouseOver={handler}
         name="rating"
         max={length}
         color="blue"

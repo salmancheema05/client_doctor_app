@@ -18,7 +18,12 @@ const NavBar = () => {
 
   const [isMobile, setIsMobile] = useState(false);
   const [isLageScreen, setIsLageScreen] = useState(false);
-
+  const [toggle, setToggle] = useState("none");
+  const handleToggle = () => {
+    // Toggle between "block" and "none"
+    const newToggle = toggle === "block" ? "none" : "block";
+    setToggle(newToggle);
+  };
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
@@ -59,7 +64,7 @@ const NavBar = () => {
         }}
       >
         {isMobile ? (
-          <ToggleButton>
+          <ToggleButton onClick={handleToggle}>
             <FormatAlignJustifyIcon />
           </ToggleButton>
         ) : null}
@@ -79,8 +84,7 @@ const NavBar = () => {
         md={9}
         lg={9}
         styles={{
-          display: isMobile ? "none" : "",
-          width: isMobile ? "100%" : "",
+          display: isMobile ? toggle : "",
           background: isMobile ? theme.background.color : "",
           zIndex: isMobile ? "1000" : "",
           height: "100vh",
@@ -101,14 +105,20 @@ const NavBar = () => {
               tag="ul"
               styles={{
                 display: isMobile ? "" : "flex",
-                justifyContent: "space-between",
+                justifyContent: isMobile ? "" : "space-between",
                 listStyleType: "none",
               }}
             >
-              <DefaultLi to="/">Home</DefaultLi>
-              <DefaultLi to="services">Services</DefaultLi>
-              <DefaultLi to="/finddoctor">Find A Doctor</DefaultLi>
-              <DefaultLi>Contact</DefaultLi>
+              <DefaultLi to="/" onClick={handleToggle}>
+                Home
+              </DefaultLi>
+              <DefaultLi to="services" onClick={handleToggle}>
+                Services
+              </DefaultLi>
+              <DefaultLi to="/finddoctor" onClick={handleToggle}>
+                Find A Doctor
+              </DefaultLi>
+              <DefaultLi onClick={handleToggle}>Contact</DefaultLi>
             </DefaultDynamicTagText>
           </DefaultGridItem>
           {/* Menu list box end  */}
@@ -130,6 +140,7 @@ const NavBar = () => {
               <LinkCircleImage
                 to={`${user_status}admin`}
                 src={Doctor2}
+                onClick={handleToggle}
                 styles={{ width: "40px", height: "40px", borderRadius: "100%" }}
               />
             ) : (

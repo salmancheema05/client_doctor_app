@@ -8,7 +8,6 @@ import {
 } from "../../../components/cardFooter";
 import { CardWithImage } from "../../../components/cards";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import StarRateIcon from "@mui/icons-material/StarRate";
 import doctorimage2 from "../../../images/doctorimage2.jpg";
 const MyBookings = () => {
   return (
@@ -38,10 +37,9 @@ const MyBookings = () => {
           styles={{ heading: { margin: "20px 0px" } }}
         >
           <RatingWithViewsCountAndSquareBadgeFooter
-            icon={<StarRateIcon />}
-            viewscount="4.5 (2)"
-            title="Doctor"
-            iconcolor="yellow"
+            yourPost="doctor"
+            textRatingAndViewsCount="4.5 (3)"
+            starlength={1}
           />
           <CircleIconAndTextFooter
             shouldFlip={true}
@@ -67,10 +65,9 @@ const MyBookings = () => {
           styles={{ heading: { margin: "20px 0px" } }}
         >
           <RatingWithViewsCountAndSquareBadgeFooter
-            icon={<StarRateIcon />}
-            viewscount="4.5 (2)"
-            title="Doctor"
-            iconcolor="yellow"
+            yourPost="doctor"
+            textRatingAndViewsCount="4.5 (3)"
+            starlength={1}
           />
           <CircleIconAndTextFooter
             shouldFlip={true}
@@ -96,10 +93,9 @@ const MyBookings = () => {
           styles={{ heading: { margin: "20px 0px" } }}
         >
           <RatingWithViewsCountAndSquareBadgeFooter
-            icon={<StarRateIcon />}
-            viewscount="4.5 (2)"
-            title="Doctor"
-            iconcolor="yellow"
+            yourPost="doctor"
+            textRatingAndViewsCount="4.5 (3)"
+            starlength={1}
           />
           <CircleIconAndTextFooter
             shouldFlip={true}

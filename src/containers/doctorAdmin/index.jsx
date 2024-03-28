@@ -7,11 +7,14 @@ import OverView from "./components/overView";
 import DefaultParagraph from "../../components/paragraphs";
 import Form from "./components/form";
 import { useTheme } from "@mui/material/styles";
+import useResponsive from "../../hooks/useResponsive";
+
 const DoctorAdmin = () => {
   const theme = useTheme();
   const [overView, setOverView] = useState(true);
   const [appointment, setAppointment] = useState(false);
   const [profile, setProfile] = useState(false);
+  const { isSmallScreen, isExtraSmallScreen } = useResponsive();
   return (
     <ThemeGrid>
       <DefaultGridItem xs={12} sm={12} md={4} lg={3} xl={3}>
@@ -45,9 +48,13 @@ const DoctorAdmin = () => {
             md={12}
             lg={12}
             xl={12}
-            styles={{ backgroundColor: theme.background.box }}
+            styles={{
+              backgroundColor: theme.background.box,
+              margin:
+                isExtraSmallScreen || isSmallScreen ? "10% 0px" : "2% 0px",
+            }}
           >
-            <DefaultParagraph styles={{ marginBottom: "2%" }}>
+            <DefaultParagraph styles={{ margin: "2% 0px" }}>
               To get approval please complate you profile.
             </DefaultParagraph>
           </DefaultGridItem>

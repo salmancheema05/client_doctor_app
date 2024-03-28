@@ -8,47 +8,86 @@ import DefaultHeading from "../../../components/headings";
 import DefaultEduction from "../../../components/eductions";
 import { DefaultExperienceTemplate } from "../../../components/experienceTemplates";
 import { DynamicTagTextWithThreeParts } from "../../../components/dynamicTagTexts";
-import { RatingWithViews } from "../../../components/cardFooter";
+import {
+  RatingWithViews,
+  RatingWithViewsCountAndSquareBadgeFooter,
+} from "../../../components/cardFooter";
+import useResponsive from "../../../hooks/useResponsive";
+import { CardWithImage } from "../../../components/cards";
 const OverView = () => {
+  const { isSmallScreen, isMediumScreen, isExtraSmallScreen } = useResponsive();
   return (
     <>
       <DefaultGridItem xs={12} sm={12} md={12} lg={12} xl={12}>
-        <ProfileCard
-          imageSrc={Doctorimage2}
-          headingTag="h4"
-          imageWidth="200"
-          imageHeight="200"
-          headingText="Dr Salman Akbar"
-          title="Surgeon"
-          paragraphText="I am a Doctor"
-          component={
-            <RatingWithViews
-              textRatingAndViewsCount="4.5 (10)"
-              starlength={1}
-            />
-          }
-          styles={{
-            flipDivs: {
-              container: {},
-              div1: {},
-              div2: {
-                marginTop: "2%",
-                marginLeft: "10px",
+        {isExtraSmallScreen || isSmallScreen || isMediumScreen ? (
+          <>
+            <DefaultGridItem xs={12} sm={12} md={12} lg={8}>
+              <CardWithImage
+                imageSrc={Doctorimage2}
+                imageWidth="100%"
+                imageHeight="30%"
+                headingTag="h2"
+                headingText="Dr Salman Akbar"
+                styles={{ heading: { margin: "20px 0px" } }}
+              >
+                <RatingWithViewsCountAndSquareBadgeFooter
+                  yourPost="doctor"
+                  textRatingAndViewsCount="4.5 (3)"
+                  starlength={1}
+                />
+              </CardWithImage>
+              <DefaultGridItem
+                xs={12}
+                sm={12}
+                md={12}
+                lg={4}
+                styles={{
+                  marginTop:
+                    isExtraSmallScreen || isSmallScreen || isMediumScreen
+                      ? "50px"
+                      : "",
+                }}
+              ></DefaultGridItem>
+            </DefaultGridItem>
+          </>
+        ) : (
+          <ProfileCard
+            imageSrc={Doctorimage2}
+            headingTag="h4"
+            imageWidth="200"
+            imageHeight="200"
+            headingText="Dr Salman Akbar"
+            title="Surgeon"
+            paragraphText="I am a Doctor"
+            component={
+              <RatingWithViews
+                textRatingAndViewsCount="4.5 (10)"
+                starlength={1}
+              />
+            }
+            styles={{
+              flipDivs: {
+                container: {},
+                div1: {},
+                div2: {
+                  marginTop: "2%",
+                  marginLeft: "10px",
+                },
               },
-            },
-            SquareBadge: {
-              backgroundColor: "#85ccd2",
-              marginBottom: "3%",
-              paddingLeft: "5%",
-              paddingRight: "5%",
-            },
-            heading: {
-              fontSize: "20px",
-              fontWeight: "bold",
-            },
-            paragraph: { marginTop: "20px", fontSize: "20px" },
-          }}
-        />
+              SquareBadge: {
+                backgroundColor: "#85ccd2",
+                marginBottom: "3%",
+                paddingLeft: "5%",
+                paddingRight: "5%",
+              },
+              heading: {
+                fontSize: "20px",
+                fontWeight: "bold",
+              },
+              paragraph: { marginTop: "20px", fontSize: "20px" },
+            }}
+          />
+        )}
       </DefaultGridItem>
 
       <DefaultGridItem xs={12} sm={12} md={12} lg={12} xl={12}>

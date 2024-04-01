@@ -4,12 +4,19 @@ import { DefaultButton } from "../../../components/buttons";
 import { DefaultDynamicTagText } from "../../../components/dynamicTagTexts";
 import { DefaultLi } from "../../../components/links";
 import { useTheme } from "@mui/material/styles";
+import { persistor } from '../../../store/index';
+import { useNavigate } from "react-router-dom";
+import { userLogoutReducer } from "../../../store/features/login";
+import { useDispatch } from "react-redux";
+
 const DoctorProfile = ({
   overview = { state: null, setState: null },
   appointment = { state: null, setState: null },
   profile = { state: null, setState: null },
 }) => {
+  const dispatch=  useDispatch()
   const theme = useTheme();
+  const navigate = useNavigate();
   const overViewFunction = () => {
     overview.setState(true);
     appointment.setState(false);
@@ -25,6 +32,12 @@ const DoctorProfile = ({
     appointment.setState(false);
     profile.setState(true);
   };
+  const logout =()=>{
+    dispatch(userLogoutReducer())
+    navigate("/login");
+    persistor.purge();
+
+  }
   return (
     <div
       style={{
@@ -91,6 +104,7 @@ const DoctorProfile = ({
       >
         <DefaultButton
           styles={{ backgroundColor: "black", marginBottom: "10px" }}
+          handler={()=>logout()}
         >
           Logout
         </DefaultButton>

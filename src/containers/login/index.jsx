@@ -5,6 +5,7 @@ import DefaultParagraph from "../../components/paragraphs";
 import { DynamicTagTextWithThreeParts } from "../../components/dynamicTagTexts";
 import Form from "./components/form";
 import { useTheme } from "@mui/material/styles";
+import { TextWithLink } from "../../components/links";
 const Login = () => {
   const theme = useTheme();
   return (
@@ -54,11 +55,10 @@ const Login = () => {
               md={12}
               lg={12}
               xl={12}
-              styles={{ marginBottom: "20px" }}
+              styles={{display:"flex",justifyContent:"center", marginBottom: "20px"}}
             >
-              <DefaultParagraph styles={{ textAlign: "center" }}>
-                Don't have an account?
-              </DefaultParagraph>
+              <TextWithLink text="Don't have an account?" linkText="Signup" to="/signup"/>
+          
             </DefaultGridItem>
           </DefaultGrid>
         </DefaultGrid>

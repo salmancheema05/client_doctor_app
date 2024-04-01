@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { DefaultButton } from "./buttons";
 import { useTheme } from "@mui/material/styles";
+import DefaultParagraph from "./paragraphs"
 const DefaultLinkImage = ({ src, to, styles }) => {
   return (
     <Link to={to}>
@@ -44,5 +45,17 @@ const LinkButtton = ({ to, styles, buttonKey }) => {
     </Link>
   );
 };
+const TextWithLink = ({text,linkText ,to }) => {
+  const theme = useTheme();
+  return (
+    <DefaultParagraph>
+      <span>{text} </span>
+      <Link to={to} style={{ textDecoration: 'none',color: theme.highLight.highLightColor   }}>
+    {linkText}
+  </Link>
 
-export { DefaultLinkImage, DefaultLi, LinkButtton, LinkCircleImage };
+    </DefaultParagraph>
+  );
+};
+
+export { DefaultLinkImage, DefaultLi, LinkButtton, LinkCircleImage,TextWithLink };

@@ -4,7 +4,19 @@ import DoctorImage2 from "../../../images/doctorimage2.jpg";
 import DefaultHeading from "../../../components/headings";
 import DefaultParagraph from "../../../components/paragraphs";
 import { DefaultButton } from "../../../components/buttons";
+import { useNavigate } from "react-router-dom";
+import { userLogoutReducer } from "../../../store/features/login";
+import { useDispatch } from "react-redux";
+import { persistor } from '../../../store/index';
 const PatientProfile = () => {
+  const dispatch=  useDispatch()
+  const navigate = useNavigate();
+  const logout =()=>{
+    dispatch(userLogoutReducer())
+    navigate("/login");
+    persistor.purge();
+
+  }
   return (
     <>
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -35,6 +47,7 @@ const PatientProfile = () => {
       >
         <DefaultButton
           styles={{ backgroundColor: "black", marginBottom: "10px" }}
+          handler={()=>logout()}
         >
           Logout
         </DefaultButton>

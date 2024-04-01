@@ -2,7 +2,7 @@ import React from "react";
 import DefaultGrid, { ThemeGrid } from "../../components/grids";
 import DefaultGridItem from "../../components/gridItems";
 import { DynamicTagTextWithThreeParts } from "../../components/dynamicTagTexts";
-import DefaultParagraph from "../../components/paragraphs";
+import { TextWithLink } from "../../components/links";
 import Form from "./components/form";
 import { useTheme } from "@mui/material/styles";
 const SignUp = () => {
@@ -52,11 +52,9 @@ const SignUp = () => {
               md={12}
               lg={12}
               xl={12}
-              styles={{ marginBottom: "20px" }}
+              styles={{ display:"flex",justifyContent:"center", marginBottom: "20px"}}
             >
-              <DefaultParagraph styles={{ textAlign: "center" }}>
-                Don't have an account?
-              </DefaultParagraph>
+               <TextWithLink text="You have an account?" linkText="Login" to="/login"/>
             </DefaultGridItem>
           </DefaultGrid>
         </DefaultGrid>
